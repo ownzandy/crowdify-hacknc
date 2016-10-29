@@ -6,7 +6,10 @@ target 'Crowdify' do
   use_frameworks!
 
   pod 'SnapKit'
-  pod 'Firebase/Core'
+  pod 'Firebase'
+  pod 'Firebase/Database'
+  pod 'SDWebImage', '4.0.0-beta2'
+
   # Pods for Crowdify
 
   target 'CrowdifyTests' do

@@ -32,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         print(SPTAuth.defaultInstance().canHandle(url))
         if SPTAuth.defaultInstance().canHandle(url) {
             SPTAuth.defaultInstance().handleAuthCallback(withTriggeredAuthURL: url, callback: { error, session -> Void in
-                print(session)
                 if error != nil {
                     print("AUTHENTICATION ERROR", error)
                     return
@@ -50,18 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         do {
             try player?.start(withClientId: "1e6187fb28dd41308bf132bec985eb76")
             player?.login(withAccessToken: session.accessToken)
+            UserDefaults.standard.set(session.accessToken, forKey: "token")
+            self.window?.rootViewController = PlaylistViewController()
         } catch {
             print("PLAYER COULD NOT BE STARTED")
         }
-    }
-    
-    func audioStreamingDidLogin(_ audioStreaming: SPTAudioStreamingController!) {
-        SPTAudioStreamingController.sharedInstance().playSpotifyURI("spotify:track:58s6EuEYJdlb0kO7awm3Vp", startingWith: 0, startingWithPosition: 0, callback: { error -> Void in
-            if(error != nil) {
-                print("Error playing Spotify URI", error)
-                return
-            }
-        })
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
