@@ -13,9 +13,10 @@ import MARKRangeSlider
 
 class EditorViewController: UIViewController {
     
+    let rangeSlider = MARKRangeSlider(frame: CGRect.zero)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rangeSlider = MARKRangeSlider(frame: CGRect.zero)
         rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
         rangeSlider.setMinValue(0.0, maxValue: 1.0)
         rangeSlider.setLeftValue(0.2, rightValue: 0.7)
@@ -29,7 +30,10 @@ class EditorViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        <#code#>
+        let margin: CGFloat = 20.0
+        let width = view.bounds.width - 2.0 * margin
+        rangeSlider.frame = CGRect(x: margin, y: margin + topLayoutGuide.length,
+                                   width: width, height: 31.0)
     }
     
 }
