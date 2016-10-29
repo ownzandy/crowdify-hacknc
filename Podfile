@@ -8,7 +8,7 @@ target 'Crowdify' do
   pod 'SnapKit'
   pod 'Firebase'
   pod 'Firebase/Database'
-
+  pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
   # Pods for Crowdify
 
   target 'CrowdifyTests' do
