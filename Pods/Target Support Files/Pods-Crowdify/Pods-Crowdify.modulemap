@@ -1,6 +1,0 @@
-framework module Pods_Crowdify {
-  umbrella header "Pods-Crowdify-umbrella.h"
-
-  export *
-  module * { export * }
-}
