@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         do {
             try player?.start(withClientId: "1e6187fb28dd41308bf132bec985eb76")
             player?.login(withAccessToken: session.accessToken)
+            UserDefaults.standard.set(session.accessToken, forKey: "token")
             self.window?.rootViewController = PlaylistViewController()
         } catch {
             print("PLAYER COULD NOT BE STARTED")
