@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SDWebImage
 
 class PlaylistViewController: UIViewController {
     
@@ -16,9 +17,9 @@ class PlaylistViewController: UIViewController {
     let tableView = UITableView()
     let navBar = UINavigationBar()
     var ref = FIRDatabase.database().reference()
+    let searching = false
     
     override func viewDidLoad() {
-
         super.viewDidLoad()
     
         
@@ -45,7 +46,8 @@ class PlaylistViewController: UIViewController {
             make.top.equalTo(navBar.snp.bottom)
         }
         tableView.delegate = self
-        
+        tableView.dataSource = self
+        tableView.register(PlaylistTableViewCell.self, forCellReuseIdentifier: PlaylistTableViewCell.reuseID)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -77,10 +79,30 @@ extension PlaylistViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
+
     
 }
 
-extension PlaylistViewController: UITableViewDelegate {
+extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchTracks.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.reuseID, for: indexPath) as! PlaylistTableViewCell
+        var artist = ""
+        
+        let url = searchTracks[indexPath.item].coverArt
+        cell.albumArt.sd_setImage(with: url)
+        
+        cell.songLabel.text = searchTracks[indexPath.item].name
+        for name in searchTracks[indexPath.item].artists {
+            artist += name
+            artist += " "
+        }
+        cell.artistLabel.text = artist
+        cell.albumLabel.text = searchTracks[indexPath.item].albumName
+        return cell
+    }
 }

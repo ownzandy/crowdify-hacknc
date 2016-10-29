@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52BBC4D203C1C440B7FD2114 /* Pods_CrowdifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B617832EFA1F75E561D5AAD1 /* Pods_CrowdifyTests.framework */; };
-		5CCAE70D607887DB3C1E5BDE /* Pods_CrowdifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28E452EBE90AE1DE5A69E71 /* Pods_CrowdifyUITests.framework */; };
+		2B8482F0826AB5D25F6A1AEB /* Pods_CrowdifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7D6BAA288380138294B84B /* Pods_CrowdifyUITests.framework */; };
+		63320C941DC51C4A00065882 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */; };
 		6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */; };
 		6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */; };
 		6E7C7CBF1DC4540200E92DE8 /* CrowdifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CBE1DC4540200E92DE8 /* CrowdifyTests.swift */; };
@@ -23,7 +23,8 @@
 		6E83C1671DC4F8F20056E8DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E83C1661DC4F8F20056E8DC /* GoogleService-Info.plist */; };
 		6E83C1691DC508F80056E8DC /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */; };
 		6E83C16B1DC5196C0056E8DC /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C16A1DC5196C0056E8DC /* Track.swift */; };
-		ABCE148DF474E53F7B78556B /* Pods_Crowdify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */; };
+		E8BBDA7A9D6740A77BFB3635 /* Pods_CrowdifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB80AB9C09E36267274AE78 /* Pods_CrowdifyTests.framework */; };
+		EB347450F173CDF6BC08A1F0 /* Pods_Crowdify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724D043F79FF337141DD685 /* Pods_Crowdify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		048CB8CB834A721233607E87 /* Pods-CrowdifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.release.xcconfig"; sourceTree = "<group>"; };
-		1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowdify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		333A7808C27FAD99C83709E6 /* Pods-CrowdifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4A7D6BAA288380138294B84B /* Pods_CrowdifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		625A02E3DED3E395061F9276 /* Pods-Crowdify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.release.xcconfig"; sourceTree = "<group>"; };
+		63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		6E7C7CA61DC4540200E92DE8 /* Crowdify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crowdify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,13 +71,12 @@
 		6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		6E83C16A1DC5196C0056E8DC /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		6E83C16C1DC522ED0056E8DC /* Crowdify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Crowdify.entitlements; sourceTree = "<group>"; };
-		802D087253DFEDEFC6466568 /* Pods-CrowdifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		98B041F674F33E86109D2558 /* Pods-Crowdify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.debug.xcconfig"; sourceTree = "<group>"; };
-		ABD7027B8562CE7DF7BDB34A /* Pods-CrowdifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B617832EFA1F75E561D5AAD1 /* Pods_CrowdifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDE1DBE92FD636622366E07A /* Pods-Crowdify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.release.xcconfig"; sourceTree = "<group>"; };
-		C7CFF54AC9EC19338D9F9466 /* Pods-CrowdifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.release.xcconfig"; sourceTree = "<group>"; };
-		F28E452EBE90AE1DE5A69E71 /* Pods_CrowdifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7724D043F79FF337141DD685 /* Pods_Crowdify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowdify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A9F288AF08961BE07D1D93F /* Pods-Crowdify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.debug.xcconfig"; sourceTree = "<group>"; };
+		A384FB5D7D4AA4BBBCF0D064 /* Pods-CrowdifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A87F691C13EAA7B0BEA30CAA /* Pods-CrowdifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE0142A539107DAB734B0D7B /* Pods-CrowdifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		DAB80AB9C09E36267274AE78 /* Pods_CrowdifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +89,7 @@
 				6E83C1551DC454BB0056E8DC /* SpotifyAudioPlayback.framework in Frameworks */,
 				6E83C1571DC454BB0056E8DC /* SpotifyMetadata.framework in Frameworks */,
 				6E83C1561DC454BB0056E8DC /* SpotifyAuthentication.framework in Frameworks */,
-				ABCE148DF474E53F7B78556B /* Pods_Crowdify.framework in Frameworks */,
+				EB347450F173CDF6BC08A1F0 /* Pods_Crowdify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52BBC4D203C1C440B7FD2114 /* Pods_CrowdifyTests.framework in Frameworks */,
+				E8BBDA7A9D6740A77BFB3635 /* Pods_CrowdifyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,13 +105,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CCAE70D607887DB3C1E5BDE /* Pods_CrowdifyUITests.framework in Frameworks */,
+				2B8482F0826AB5D25F6A1AEB /* Pods_CrowdifyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23872099BC8110EAD5DE0DDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9A9F288AF08961BE07D1D93F /* Pods-Crowdify.debug.xcconfig */,
+				625A02E3DED3E395061F9276 /* Pods-Crowdify.release.xcconfig */,
+				A87F691C13EAA7B0BEA30CAA /* Pods-CrowdifyTests.debug.xcconfig */,
+				CE0142A539107DAB734B0D7B /* Pods-CrowdifyTests.release.xcconfig */,
+				333A7808C27FAD99C83709E6 /* Pods-CrowdifyUITests.debug.xcconfig */,
+				A384FB5D7D4AA4BBBCF0D064 /* Pods-CrowdifyUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6E7C7C9D1DC4540100E92DE8 = {
 			isa = PBXGroup;
 			children = (
@@ -118,7 +133,7 @@
 				6E7C7CBD1DC4540200E92DE8 /* CrowdifyTests */,
 				6E7C7CC81DC4540200E92DE8 /* CrowdifyUITests */,
 				6E7C7CA71DC4540200E92DE8 /* Products */,
-				B71EFF5BB6FEFB2319B6BCAD /* Pods */,
+				23872099BC8110EAD5DE0DDB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +155,7 @@
 				6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */,
 				6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */,
 				6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */,
+				63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */,
 				6E83C1601DC459590056E8DC /* LoginViewController.swift */,
 				6E83C16A1DC5196C0056E8DC /* Track.swift */,
 				6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */,
@@ -175,24 +191,11 @@
 				6E83C1521DC454BB0056E8DC /* SpotifyAudioPlayback.framework */,
 				6E83C1531DC454BB0056E8DC /* SpotifyAuthentication.framework */,
 				6E83C1541DC454BB0056E8DC /* SpotifyMetadata.framework */,
-				1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */,
-				B617832EFA1F75E561D5AAD1 /* Pods_CrowdifyTests.framework */,
-				F28E452EBE90AE1DE5A69E71 /* Pods_CrowdifyUITests.framework */,
+				7724D043F79FF337141DD685 /* Pods_Crowdify.framework */,
+				DAB80AB9C09E36267274AE78 /* Pods_CrowdifyTests.framework */,
+				4A7D6BAA288380138294B84B /* Pods_CrowdifyUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B71EFF5BB6FEFB2319B6BCAD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				98B041F674F33E86109D2558 /* Pods-Crowdify.debug.xcconfig */,
-				BDE1DBE92FD636622366E07A /* Pods-Crowdify.release.xcconfig */,
-				ABD7027B8562CE7DF7BDB34A /* Pods-CrowdifyTests.debug.xcconfig */,
-				C7CFF54AC9EC19338D9F9466 /* Pods-CrowdifyTests.release.xcconfig */,
-				802D087253DFEDEFC6466568 /* Pods-CrowdifyUITests.debug.xcconfig */,
-				048CB8CB834A721233607E87 /* Pods-CrowdifyUITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,12 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E7C7CCE1DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "Crowdify" */;
 			buildPhases = (
-				FDB0FEC69E7F899CB90D20A3 /* [CP] Check Pods Manifest.lock */,
+				36688A451F8EA124D6AB07B0 /* [CP] Check Pods Manifest.lock */,
 				6E7C7CA21DC4540100E92DE8 /* Sources */,
 				6E7C7CA31DC4540100E92DE8 /* Frameworks */,
 				6E7C7CA41DC4540100E92DE8 /* Resources */,
-				7EEA8CCE6F890F7DA576326F /* [CP] Embed Pods Frameworks */,
-				07F56F876A005E4097F6E2E6 /* [CP] Copy Pods Resources */,
+				CE9CA056B5C5D97B925A4DCA /* [CP] Embed Pods Frameworks */,
+				36BAE117009EACE448967EAD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -222,12 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E7C7CD11DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "CrowdifyTests" */;
 			buildPhases = (
-				D542643EE202333427146630 /* [CP] Check Pods Manifest.lock */,
+				F70D9D6DBDFC42F2D753DFE0 /* [CP] Check Pods Manifest.lock */,
 				6E7C7CB61DC4540200E92DE8 /* Sources */,
 				6E7C7CB71DC4540200E92DE8 /* Frameworks */,
 				6E7C7CB81DC4540200E92DE8 /* Resources */,
-				3594AA98B7C1FF3628D44647 /* [CP] Embed Pods Frameworks */,
-				FC7945992174984268B4D01B /* [CP] Copy Pods Resources */,
+				59C38D3AC29EA971CD11F0B6 /* [CP] Embed Pods Frameworks */,
+				D2420CC2C51A50B3BC595DE8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,11 +246,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E7C7CD41DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "CrowdifyUITests" */;
 			buildPhases = (
-				6851447A0589B5137ECC5501 /* [CP] Check Pods Manifest.lock */,
+				06426A692B8FABF4F32D0E0A /* [CP] Check Pods Manifest.lock */,
 				6E7C7CC11DC4540200E92DE8 /* Sources */,
 				6E7C7CC21DC4540200E92DE8 /* Frameworks */,
 				6E7C7CC31DC4540200E92DE8 /* Resources */,
-				32579B1767C3D2E905D0BC9A /* [CP] Copy Pods Resources */,
+				E812864222A834011130BFF0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -342,7 +345,37 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		07F56F876A005E4097F6E2E6 /* [CP] Copy Pods Resources */ = {
+		06426A692B8FABF4F32D0E0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		36688A451F8EA124D6AB07B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		36BAE117009EACE448967EAD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -357,22 +390,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		32579B1767C3D2E905D0BC9A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3594AA98B7C1FF3628D44647 /* [CP] Embed Pods Frameworks */ = {
+		59C38D3AC29EA971CD11F0B6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -387,22 +405,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6851447A0589B5137ECC5501 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7EEA8CCE6F890F7DA576326F /* [CP] Embed Pods Frameworks */ = {
+		CE9CA056B5C5D97B925A4DCA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -417,22 +420,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D542643EE202333427146630 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FC7945992174984268B4D01B /* [CP] Copy Pods Resources */ = {
+		D2420CC2C51A50B3BC595DE8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -447,7 +435,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FDB0FEC69E7F899CB90D20A3 /* [CP] Check Pods Manifest.lock */ = {
+		E812864222A834011130BFF0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F70D9D6DBDFC42F2D753DFE0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -472,6 +475,7 @@
 				6E83C1611DC459590056E8DC /* LoginViewController.swift in Sources */,
 				6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */,
 				6E83C1691DC508F80056E8DC /* PlaylistViewController.swift in Sources */,
+				63320C941DC51C4A00065882 /* PlaylistTableViewCell.swift in Sources */,
 				6E83C16B1DC5196C0056E8DC /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,7 +607,7 @@
 		};
 		6E7C7CCF1DC4540200E92DE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98B041F674F33E86109D2558 /* Pods-Crowdify.debug.xcconfig */;
+			baseConfigurationReference = 9A9F288AF08961BE07D1D93F /* Pods-Crowdify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -629,7 +633,7 @@
 		};
 		6E7C7CD01DC4540200E92DE8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDE1DBE92FD636622366E07A /* Pods-Crowdify.release.xcconfig */;
+			baseConfigurationReference = 625A02E3DED3E395061F9276 /* Pods-Crowdify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -654,7 +658,7 @@
 		};
 		6E7C7CD21DC4540200E92DE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ABD7027B8562CE7DF7BDB34A /* Pods-CrowdifyTests.debug.xcconfig */;
+			baseConfigurationReference = A87F691C13EAA7B0BEA30CAA /* Pods-CrowdifyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -669,7 +673,7 @@
 		};
 		6E7C7CD31DC4540200E92DE8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7CFF54AC9EC19338D9F9466 /* Pods-CrowdifyTests.release.xcconfig */;
+			baseConfigurationReference = CE0142A539107DAB734B0D7B /* Pods-CrowdifyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -684,7 +688,7 @@
 		};
 		6E7C7CD51DC4540200E92DE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 802D087253DFEDEFC6466568 /* Pods-CrowdifyUITests.debug.xcconfig */;
+			baseConfigurationReference = 333A7808C27FAD99C83709E6 /* Pods-CrowdifyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = CrowdifyUITests/Info.plist;
@@ -698,7 +702,7 @@
 		};
 		6E7C7CD61DC4540200E92DE8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 048CB8CB834A721233607E87 /* Pods-CrowdifyUITests.release.xcconfig */;
+			baseConfigurationReference = A384FB5D7D4AA4BBBCF0D064 /* Pods-CrowdifyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = CrowdifyUITests/Info.plist;
