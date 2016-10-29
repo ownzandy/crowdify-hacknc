@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		52BBC4D203C1C440B7FD2114 /* Pods_CrowdifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B617832EFA1F75E561D5AAD1 /* Pods_CrowdifyTests.framework */; };
 		5CCAE70D607887DB3C1E5BDE /* Pods_CrowdifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28E452EBE90AE1DE5A69E71 /* Pods_CrowdifyUITests.framework */; };
-		63DD4C311DC5096000CC1B85 /* GroupLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD4C301DC5096000CC1B85 /* GroupLocator.swift */; };
+		6352ED631DC5395C00EEE548 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6352ED621DC5395C00EEE548 /* GoogleService-Info.plist */; };
+		63DD4C311DC5096000CC1B85 /* GroupLocatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD4C301DC5096000CC1B85 /* GroupLocatorViewController.swift */; };
 		6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */; };
 		6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */; };
 		6E7C7CBF1DC4540200E92DE8 /* CrowdifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CBE1DC4540200E92DE8 /* CrowdifyTests.swift */; };
@@ -44,7 +45,8 @@
 /* Begin PBXFileReference section */
 		048CB8CB834A721233607E87 /* Pods-CrowdifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowdify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		63DD4C301DC5096000CC1B85 /* GroupLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupLocator.swift; sourceTree = "<group>"; };
+		6352ED621DC5395C00EEE548 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		63DD4C301DC5096000CC1B85 /* GroupLocatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupLocatorViewController.swift; sourceTree = "<group>"; };
 		6E7C7CA61DC4540200E92DE8 /* Crowdify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crowdify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,9 +135,10 @@
 				6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */,
 				6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */,
 				6E83C1601DC459590056E8DC /* LoginViewController.swift */,
-				63DD4C301DC5096000CC1B85 /* GroupLocator.swift */,
+				63DD4C301DC5096000CC1B85 /* GroupLocatorViewController.swift */,
 				6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */,
 				6E7C7CB51DC4540200E92DE8 /* Info.plist */,
+				6352ED621DC5395C00EEE548 /* GoogleService-Info.plist */,
 				6E83C15C1DC4573A0056E8DC /* Crowdify-Bridging-Header.h */,
 			);
 			path = Crowdify;
@@ -308,6 +311,7 @@
 			files = (
 				6E83C1651DC469BD0056E8DC /* Launch Screen.storyboard in Resources */,
 				6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */,
+				6352ED631DC5395C00EEE548 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,7 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E83C1611DC459590056E8DC /* LoginViewController.swift in Sources */,
-				63DD4C311DC5096000CC1B85 /* GroupLocator.swift in Sources */,
+				63DD4C311DC5096000CC1B85 /* GroupLocatorViewController.swift in Sources */,
 				6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,7 +617,10 @@
 				);
 				INFOPLIST_FILE = Crowdify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.Crowdify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Crowdify/Crowdify-Bridging-Header.h";
@@ -634,7 +641,10 @@
 				);
 				INFOPLIST_FILE = Crowdify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.Crowdify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Crowdify/Crowdify-Bridging-Header.h";

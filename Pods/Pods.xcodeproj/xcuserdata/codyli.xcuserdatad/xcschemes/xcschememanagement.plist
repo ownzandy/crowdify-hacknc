@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Firebase.xcscheme</key>
+		<key>GeoFire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GeoFire.xcscheme</key>
+		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,27 +37,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>186BE77CCDDC22B866C2F85BD075F120</key>
+		<key>700BF39CE01B911AF4F25BC5F6AA45B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4982F3084B981C1E6DCF8B3A064BA2DB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9796CF6BB99D735F8BE62418519A4DEB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9CA4AB34F70E3C3307DB28F9C27533F5</key>
+		<key>81A8474EA9C024C7B76552DF77266EFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AF3E152ED1A7DD5614D44CDFA9ED9F65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B4CC71B3394A4822693797551BE96CAE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D442A1063E1FD2A0AB8ACF96C63173A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
