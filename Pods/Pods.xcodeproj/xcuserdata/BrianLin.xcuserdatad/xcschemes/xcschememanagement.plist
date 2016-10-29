@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MARKRangeSlider-MARKRangeSlider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MARKRangeSlider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Crowdify.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,42 +47,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F3E1FB39B41D8C0B5A82EE293143AB3</key>
+		<key>25BDD3F188627C9F16C35233B567AAAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E2A5EF4FB068EA64884EC4F4FB87C1B</key>
+		<key>4C745BA5BF1D3242DE775421ED237489</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7FD76B5A0FB55989E93CC6338BF23171</key>
+		<key>A31A575B382DC7F2A82A51E9AC9B47A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8418C06D26F5CD7DD56F11AA231750E3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>92BB131FA876445E027D20AE23EA7B5F</key>
+		<key>A6875D81C24E0C237DA91D93EDFD7454</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>AF3E152ED1A7DD5614D44CDFA9ED9F65</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D987A3127CFE63F1EA7B8A4854CE6401</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E4EABE9D1283D01406BEF7FA566B2E61</key>
 		<dict>
 			<key>primary</key>
 			<true/>

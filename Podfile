@@ -7,7 +7,7 @@ target 'Crowdify' do
 
   pod 'SnapKit'
   pod 'Firebase/Core'
-
+  pod 'MARKRangeSlider'
   # Pods for Crowdify
 
   target 'CrowdifyTests' do
