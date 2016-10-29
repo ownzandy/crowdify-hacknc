@@ -17,6 +17,7 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     let searchController = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
     let navBar = UINavigationBar()
+    let player = SPTAudioStreamingController.sharedInstance()
     var ref = FIRDatabase.database().reference()
     var searchActive: Bool = false
     
@@ -37,7 +38,6 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
                                                albumName: track["albumName"] as! String))
                     }
                 }
-                print(newTracks)
                 self.playTracks = newTracks
                 self.tableView.reloadData()
             }
@@ -52,7 +52,8 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.left.right.bottom.equalTo(view)
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(view).offset(-100)
             make.top.equalTo(navBar.snp.bottom)
         }
         tableView.delegate = self
@@ -63,6 +64,25 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
         searchController.searchBar.delegate = self
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
+        let playView = UIView()
+        playView.backgroundColor = UIColor.black
+        view.addSubview(playView)
+        playView.snp.makeConstraints { make in
+            make.height.equalTo(100)
+            make.bottom.left.right.equalTo(view)
+        }
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(startPlaying))
+        playView.addGestureRecognizer(gestureRecognizer)
+    }
+    
+    func startPlaying() {
+        if(playTracks.count > 0) {
+            player?.playSpotifyURI(playTracks.first?.uri.absoluteString, startingWith: 0, startingWithPosition: 0, callback: { error, success -> Void in
+                print(error)
+                print(success)
+            })
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

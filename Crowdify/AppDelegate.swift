@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        print(SPTAuth.defaultInstance().canHandle(url))
         if SPTAuth.defaultInstance().canHandle(url) {
             SPTAuth.defaultInstance().handleAuthCallback(withTriggeredAuthURL: url, callback: { error, session -> Void in
                 if error != nil {
@@ -44,7 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     }
     
     func loginWithSession(session: SPTSession) {
-        let player = SPTAudioStreamingController.sharedInstance()
         player?.delegate = self
         do {
             try player?.start(withClientId: "1e6187fb28dd41308bf132bec985eb76")
