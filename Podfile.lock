@@ -18,12 +18,10 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.0)
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
-  - MARKRangeSlider (1.1.0)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - Firebase/Core
-  - MARKRangeSlider
   - SnapKit
 
 SPEC CHECKSUMS:
@@ -34,9 +32,8 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
-  MARKRangeSlider: decd9efaf827d443579d698f3c740f3cd6a13fbf
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: f7d88cfcc7544d780f4b9f1985b3bfd149bbc03d
+PODFILE CHECKSUM: 0b4a49cc96615d4d53864ebf7a0ab9d3d53f8728
 
 COCOAPODS: 1.1.1
