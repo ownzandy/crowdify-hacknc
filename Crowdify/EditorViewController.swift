@@ -28,4 +28,8 @@ class EditorViewController: UIViewController {
         print(String(format: "%0.2f - %0.2f", slider.leftValue, slider.rightValue))
     }
     
+    override func viewDidLayoutSubviews() {
+        <#code#>
+    }
+    
 }
