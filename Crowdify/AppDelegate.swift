@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
     }
     
     func loginWithSession(session: SPTSession) {
+        let player = SPTAudioStreamingController.sharedInstance()
         player?.delegate = self
         do {
             try player?.start(withClientId: "1e6187fb28dd41308bf132bec985eb76")

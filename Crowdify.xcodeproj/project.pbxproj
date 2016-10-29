@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B8482F0826AB5D25F6A1AEB /* Pods_CrowdifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7D6BAA288380138294B84B /* Pods_CrowdifyUITests.framework */; };
+		3F64B404075D33F5B46AA94A /* Pods_Crowdify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A510B5E0E5D7AB236C4EE045 /* Pods_Crowdify.framework */; };
 		63320C941DC51C4A00065882 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */; };
 		6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */; };
 		6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */; };
@@ -23,8 +23,8 @@
 		6E83C1671DC4F8F20056E8DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E83C1661DC4F8F20056E8DC /* GoogleService-Info.plist */; };
 		6E83C1691DC508F80056E8DC /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */; };
 		6E83C16B1DC5196C0056E8DC /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C16A1DC5196C0056E8DC /* Track.swift */; };
-		E8BBDA7A9D6740A77BFB3635 /* Pods_CrowdifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAB80AB9C09E36267274AE78 /* Pods_CrowdifyTests.framework */; };
-		EB347450F173CDF6BC08A1F0 /* Pods_Crowdify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7724D043F79FF337141DD685 /* Pods_Crowdify.framework */; };
+		E150C8B05D3BD14B2D6FC861 /* Pods_CrowdifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91AC5ECF310939D801636F4D /* Pods_CrowdifyUITests.framework */; };
+		F7D3AFF84829D42306F67989 /* Pods_CrowdifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A05859409D6E6A98C5D4F9C /* Pods_CrowdifyTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,9 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		333A7808C27FAD99C83709E6 /* Pods-CrowdifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4A7D6BAA288380138294B84B /* Pods_CrowdifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		625A02E3DED3E395061F9276 /* Pods-Crowdify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.release.xcconfig"; sourceTree = "<group>"; };
+		2B5A09FC40E67C8D4A21E5D2 /* Pods-CrowdifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4CB2846A2ED44C06A3A30BBD /* Pods-Crowdify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.release.xcconfig"; sourceTree = "<group>"; };
+		5A05859409D6E6A98C5D4F9C /* Pods_CrowdifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		6E7C7CA61DC4540200E92DE8 /* Crowdify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crowdify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,12 +71,12 @@
 		6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		6E83C16A1DC5196C0056E8DC /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		6E83C16C1DC522ED0056E8DC /* Crowdify.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Crowdify.entitlements; sourceTree = "<group>"; };
-		7724D043F79FF337141DD685 /* Pods_Crowdify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowdify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A9F288AF08961BE07D1D93F /* Pods-Crowdify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.debug.xcconfig"; sourceTree = "<group>"; };
-		A384FB5D7D4AA4BBBCF0D064 /* Pods-CrowdifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.release.xcconfig"; sourceTree = "<group>"; };
-		A87F691C13EAA7B0BEA30CAA /* Pods-CrowdifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CE0142A539107DAB734B0D7B /* Pods-CrowdifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.release.xcconfig"; sourceTree = "<group>"; };
-		DAB80AB9C09E36267274AE78 /* Pods_CrowdifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B36077CCC1383EC791B3B7F /* Pods-CrowdifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		91AC5ECF310939D801636F4D /* Pods_CrowdifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A510B5E0E5D7AB236C4EE045 /* Pods_Crowdify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowdify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B80391A11B36267F97A3EA96 /* Pods-CrowdifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C156639D917F725849AFA7E3 /* Pods-CrowdifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C17A386AD6D731D13220D161 /* Pods-Crowdify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 				6E83C1551DC454BB0056E8DC /* SpotifyAudioPlayback.framework in Frameworks */,
 				6E83C1571DC454BB0056E8DC /* SpotifyMetadata.framework in Frameworks */,
 				6E83C1561DC454BB0056E8DC /* SpotifyAuthentication.framework in Frameworks */,
-				EB347450F173CDF6BC08A1F0 /* Pods_Crowdify.framework in Frameworks */,
+				3F64B404075D33F5B46AA94A /* Pods_Crowdify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8BBDA7A9D6740A77BFB3635 /* Pods_CrowdifyTests.framework in Frameworks */,
+				F7D3AFF84829D42306F67989 /* Pods_CrowdifyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,22 +105,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B8482F0826AB5D25F6A1AEB /* Pods_CrowdifyUITests.framework in Frameworks */,
+				E150C8B05D3BD14B2D6FC861 /* Pods_CrowdifyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		23872099BC8110EAD5DE0DDB /* Pods */ = {
+		0672031ABF1166B869ED850A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9A9F288AF08961BE07D1D93F /* Pods-Crowdify.debug.xcconfig */,
-				625A02E3DED3E395061F9276 /* Pods-Crowdify.release.xcconfig */,
-				A87F691C13EAA7B0BEA30CAA /* Pods-CrowdifyTests.debug.xcconfig */,
-				CE0142A539107DAB734B0D7B /* Pods-CrowdifyTests.release.xcconfig */,
-				333A7808C27FAD99C83709E6 /* Pods-CrowdifyUITests.debug.xcconfig */,
-				A384FB5D7D4AA4BBBCF0D064 /* Pods-CrowdifyUITests.release.xcconfig */,
+				C17A386AD6D731D13220D161 /* Pods-Crowdify.debug.xcconfig */,
+				4CB2846A2ED44C06A3A30BBD /* Pods-Crowdify.release.xcconfig */,
+				2B5A09FC40E67C8D4A21E5D2 /* Pods-CrowdifyTests.debug.xcconfig */,
+				7B36077CCC1383EC791B3B7F /* Pods-CrowdifyTests.release.xcconfig */,
+				B80391A11B36267F97A3EA96 /* Pods-CrowdifyUITests.debug.xcconfig */,
+				C156639D917F725849AFA7E3 /* Pods-CrowdifyUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -133,7 +133,7 @@
 				6E7C7CBD1DC4540200E92DE8 /* CrowdifyTests */,
 				6E7C7CC81DC4540200E92DE8 /* CrowdifyUITests */,
 				6E7C7CA71DC4540200E92DE8 /* Products */,
-				23872099BC8110EAD5DE0DDB /* Pods */,
+				0672031ABF1166B869ED850A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -191,9 +191,9 @@
 				6E83C1521DC454BB0056E8DC /* SpotifyAudioPlayback.framework */,
 				6E83C1531DC454BB0056E8DC /* SpotifyAuthentication.framework */,
 				6E83C1541DC454BB0056E8DC /* SpotifyMetadata.framework */,
-				7724D043F79FF337141DD685 /* Pods_Crowdify.framework */,
-				DAB80AB9C09E36267274AE78 /* Pods_CrowdifyTests.framework */,
-				4A7D6BAA288380138294B84B /* Pods_CrowdifyUITests.framework */,
+				A510B5E0E5D7AB236C4EE045 /* Pods_Crowdify.framework */,
+				5A05859409D6E6A98C5D4F9C /* Pods_CrowdifyTests.framework */,
+				91AC5ECF310939D801636F4D /* Pods_CrowdifyUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -205,12 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E7C7CCE1DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "Crowdify" */;
 			buildPhases = (
-				36688A451F8EA124D6AB07B0 /* [CP] Check Pods Manifest.lock */,
+				32952CB89614C8B2763655D5 /* [CP] Check Pods Manifest.lock */,
 				6E7C7CA21DC4540100E92DE8 /* Sources */,
 				6E7C7CA31DC4540100E92DE8 /* Frameworks */,
 				6E7C7CA41DC4540100E92DE8 /* Resources */,
-				CE9CA056B5C5D97B925A4DCA /* [CP] Embed Pods Frameworks */,
-				36BAE117009EACE448967EAD /* [CP] Copy Pods Resources */,
+				DE77F833836A765DF7D65487 /* [CP] Embed Pods Frameworks */,
+				60949B15BBFC7985D5DA8CCF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,12 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E7C7CD11DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "CrowdifyTests" */;
 			buildPhases = (
-				F70D9D6DBDFC42F2D753DFE0 /* [CP] Check Pods Manifest.lock */,
+				75258060204568D36D87DC2F /* [CP] Check Pods Manifest.lock */,
 				6E7C7CB61DC4540200E92DE8 /* Sources */,
 				6E7C7CB71DC4540200E92DE8 /* Frameworks */,
 				6E7C7CB81DC4540200E92DE8 /* Resources */,
-				59C38D3AC29EA971CD11F0B6 /* [CP] Embed Pods Frameworks */,
-				D2420CC2C51A50B3BC595DE8 /* [CP] Copy Pods Resources */,
+				C925F936E39E3B8647BA7CC8 /* [CP] Embed Pods Frameworks */,
+				A4B97E59113A56742BAE4F14 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -246,12 +246,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E7C7CD41DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "CrowdifyUITests" */;
 			buildPhases = (
-				06426A692B8FABF4F32D0E0A /* [CP] Check Pods Manifest.lock */,
+				168E6BCF2E087539196A780B /* [CP] Check Pods Manifest.lock */,
 				6E7C7CC11DC4540200E92DE8 /* Sources */,
 				6E7C7CC21DC4540200E92DE8 /* Frameworks */,
 				6E7C7CC31DC4540200E92DE8 /* Resources */,
-				E812864222A834011130BFF0 /* [CP] Copy Pods Resources */,
-				0121DE96770CB26FEEC40A97 /* [CP] Embed Pods Frameworks */,
+				09388B5E003AB948BB467601 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -346,112 +345,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0121DE96770CB26FEEC40A97 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		06426A692B8FABF4F32D0E0A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		36688A451F8EA124D6AB07B0 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		36BAE117009EACE448967EAD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		59C38D3AC29EA971CD11F0B6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE9CA056B5C5D97B925A4DCA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D2420CC2C51A50B3BC595DE8 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E812864222A834011130BFF0 /* [CP] Copy Pods Resources */ = {
+		09388B5E003AB948BB467601 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -466,7 +360,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F70D9D6DBDFC42F2D753DFE0 /* [CP] Check Pods Manifest.lock */ = {
+		168E6BCF2E087539196A780B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -478,7 +372,97 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		32952CB89614C8B2763655D5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		60949B15BBFC7985D5DA8CCF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75258060204568D36D87DC2F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A4B97E59113A56742BAE4F14 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C925F936E39E3B8647BA7CC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE77F833836A765DF7D65487 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -623,7 +607,7 @@
 		};
 		6E7C7CCF1DC4540200E92DE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A9F288AF08961BE07D1D93F /* Pods-Crowdify.debug.xcconfig */;
+			baseConfigurationReference = C17A386AD6D731D13220D161 /* Pods-Crowdify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -649,7 +633,7 @@
 		};
 		6E7C7CD01DC4540200E92DE8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 625A02E3DED3E395061F9276 /* Pods-Crowdify.release.xcconfig */;
+			baseConfigurationReference = 4CB2846A2ED44C06A3A30BBD /* Pods-Crowdify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -674,7 +658,7 @@
 		};
 		6E7C7CD21DC4540200E92DE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A87F691C13EAA7B0BEA30CAA /* Pods-CrowdifyTests.debug.xcconfig */;
+			baseConfigurationReference = 2B5A09FC40E67C8D4A21E5D2 /* Pods-CrowdifyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -689,7 +673,7 @@
 		};
 		6E7C7CD31DC4540200E92DE8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE0142A539107DAB734B0D7B /* Pods-CrowdifyTests.release.xcconfig */;
+			baseConfigurationReference = 7B36077CCC1383EC791B3B7F /* Pods-CrowdifyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -704,7 +688,7 @@
 		};
 		6E7C7CD51DC4540200E92DE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 333A7808C27FAD99C83709E6 /* Pods-CrowdifyUITests.debug.xcconfig */;
+			baseConfigurationReference = B80391A11B36267F97A3EA96 /* Pods-CrowdifyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = CrowdifyUITests/Info.plist;
@@ -718,7 +702,7 @@
 		};
 		6E7C7CD61DC4540200E92DE8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A384FB5D7D4AA4BBBCF0D064 /* Pods-CrowdifyUITests.release.xcconfig */;
+			baseConfigurationReference = C156639D917F725849AFA7E3 /* Pods-CrowdifyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = CrowdifyUITests/Info.plist;

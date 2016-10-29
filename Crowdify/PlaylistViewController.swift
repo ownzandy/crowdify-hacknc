@@ -12,6 +12,7 @@ import SDWebImage
 
 class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
+    var crowdID = "crowdID"
     var playTracks: [Track] = []
     var searchTracks: [Track] = []
     let searchController = UISearchController(searchResultsController: nil)
@@ -24,7 +25,9 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let crowdRef = self.ref.child("crowds").child("crowdID").queryOrdered(byChild: "index")
+        player?.playbackDelegate = self
+        
+        let crowdRef = self.ref.child("crowds").child(crowdID).queryOrdered(byChild: "index")
         
         crowdRef.observe(FIRDataEventType.value, with: { snapshot in
             if let tracks = snapshot.value as? [String: AnyObject] {
@@ -82,11 +85,16 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
     func startPlaying() {
         if(playTracks.count > 0) {
-            player?.playSpotifyURI(playTracks.first?.uri.absoluteString, startingWith: 0, startingWithPosition: 0, callback: { error, success -> Void in
-                print(error)
-                print(success)
+            print(playTracks.first?.uri.absoluteString)
+            player?.playSpotifyURI(playTracks.first?.uri.absoluteString, startingWith: 0, startingWithPosition: 0, callback: { error -> Void in
+                if(error != nil) {
+                    print("Error playing Spotify URI", error)
+                    return
+                }
+                print("playing music")
             })
         }
+            
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -127,6 +135,29 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
 }
 
+extension PlaylistViewController: SPTAudioStreamingPlaybackDelegate {
+    
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: String!) {
+//        let crowdRef = self.ref.child("crowds").child(crowdID)
+//        crowdRef.observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
+//            if let crowd = snapshot.value as? [String: AnyObject] {
+//                if let currentSong = crowd["currentSong"] as? String, let uri = trackUri as? String {
+//                    if(currentSong == uri) {
+//                        let time = crowd["currentTime"] as? Double
+//                        let currentTime = Date().timeIntervalSince1970
+//                        player?.seek(to: , callback: { error in
+//                            if(error != nil) {
+//                                print("errored when seeking", error)
+//                            }
+//                            
+//                        })
+//                    }
+//                }
+//            }
+//        })
+    }
+}
+
 extension PlaylistViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
@@ -143,9 +174,8 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         return tracks.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
-        return 75.0;//Choose your custom row height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75.0;
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -176,7 +206,7 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchActive {
-            let crowdRef = self.ref.child("crowds").child("crowdID")
+            let crowdRef = self.ref.child("crowds").child(crowdID)
             let newSong = crowdRef.childByAutoId()
             let track = searchTracks[indexPath.row]
             newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName, "index": playTracks.count + 1])
