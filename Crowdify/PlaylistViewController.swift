@@ -105,4 +105,6 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         cell.albumLabel.text = searchTracks[indexPath.item].albumName
         return cell
     }
+    
+    
 }
