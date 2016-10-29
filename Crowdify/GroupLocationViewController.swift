@@ -18,20 +18,24 @@ class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     let geofireRef = FIRDatabase.database().reference()
-    let geoFire = GeoFire()
-    
-    let createGroupButton: UIButton! = nil
-    let joinGroupButton: UIButton! = nil
+    var geoFire: GeoFire!
+    var lat : Double = 0.0
+    var long : Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FIRApp.configure()
+        
+        geoFire = GeoFire(firebaseRef: geofireRef)
         
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.startUpdatingLocation()
         
+        
+        let createGroupButton = UIButton()
         view.addSubview(createGroupButton)
-        createGroupButton.backgroundColor = UIColor.blue
+        createGroupButton.backgroundColor = UIColor.green
         createGroupButton.snp.makeConstraints { make in
             make.width.height.equalTo(100)
             make.centerX.centerY.equalTo(view)
@@ -40,8 +44,19 @@ class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let current = locations.last
+
+        lat = current!.coordinate.latitude
+        long = current!.coordinate.longitude
+        
+//        print("locations = \(lat) \(long)")
+    }
+    
     func createGroup() {
-        geoFire.setLocation(CLLocation(latitude: 37.7853889, longitude: -122.4056973), forKey: "firebase-hq")
+        let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
+        
+        geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: deviceUUID)
     }
     
     
