@@ -97,11 +97,16 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchTracks.count
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 75.0;//Choose your custom row height
+    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.reuseID, for: indexPath) as! PlaylistTableViewCell
         var artist = ""
-        var album = "• "
+        let album = "• "
         
         let url = searchTracks[indexPath.item].coverArt
         cell.albumArt.sd_setImage(with: url)
@@ -112,10 +117,8 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
             artist += name
             artist += " "
         }
-        cell.artistLabel.text = artist
-        cell.artistLabel.font = UIFont(name:"Avenir", size:12)
-        cell.albumLabel.text = album + searchTracks[indexPath.item].albumName
-        cell.albumLabel.font = UIFont(name:"Avenir", size:12)
+        cell.artistAlbumLabel.text = artist + album + searchTracks[indexPath.item].albumName
+        cell.artistAlbumLabel.font = UIFont(name:"Avenir", size:12)
         return cell
     }
     

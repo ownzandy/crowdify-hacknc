@@ -13,10 +13,11 @@ class PlaylistTableViewCell: UITableViewCell {
     static let reuseID = "PlaylistTableViewCell"
     var albumArt = UIImageView()
     var songLabel = UILabel()
-    var artistLabel = UILabel()
-    var albumLabel = UILabel()
-    private let leftRightSpacing: CGFloat = 5
+    var artistAlbumLabel = UILabel()
+    private let leftRightSpacing: CGFloat = 10
+    private let songTopSpacing: CGFloat = 15
     private let topBottomSpacing: CGFloat = 5
+    private let offset: CGFloat = 90
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,23 +31,20 @@ class PlaylistTableViewCell: UITableViewCell {
     func configure() {
         addSubview(albumArt)
         addSubview(songLabel)
-        addSubview(artistLabel)
-        addSubview(albumLabel)
+        addSubview(artistAlbumLabel)
         albumArt.snp.makeConstraints { make in
             make.left.equalTo(self).offset(leftRightSpacing)
-            make.top.equalTo(self)
+            make.top.equalTo(self).offset(topBottomSpacing)
         }
         songLabel.snp.makeConstraints { make in
             make.left.equalTo(albumArt.snp.right).offset(leftRightSpacing)
-            make.top.equalTo(self).offset(topBottomSpacing)
+            make.top.equalTo(self).offset(songTopSpacing)
+            make.width.equalTo(UIScreen.main.bounds.width - offset)
         }
-        artistLabel.snp.makeConstraints { make in
+        artistAlbumLabel.snp.makeConstraints { make in
             make.left.equalTo(albumArt.snp.right).offset(leftRightSpacing)
             make.top.equalTo(songLabel.snp.bottom).offset(topBottomSpacing)
-        }
-        albumLabel.snp.makeConstraints { make in
-            make.left.equalTo(artistLabel.snp.right)
-            make.top.equalTo(songLabel.snp.bottom).offset(topBottomSpacing)
+            make.width.equalTo(UIScreen.main.bounds.width - offset)
         }
     }
 
