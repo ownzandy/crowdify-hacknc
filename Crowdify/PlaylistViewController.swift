@@ -10,7 +10,7 @@ import UIKit
 
 class PlaylistViewController: UIViewController {
     
-    var searchTracks: [Track]
+    var searchTracks: [Track] = []
     let searchController = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
     let navBar = UINavigationBar()
