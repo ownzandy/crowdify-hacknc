@@ -23,12 +23,15 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let crowdRef = self.ref.child("crowds").child("crowdID")
+        let crowdRef = self.ref.child("crowds").child("crowdID").queryOrdered(byChild: "index")
         
         crowdRef.observe(FIRDataEventType.value, with: { snapshot in
             if let tracks = snapshot.value as? [String: AnyObject] {
+                let sortedTracks = tracks.sorted {
+                    return ($0.value["index"] as! Int) < ($1.value["index"] as! Int)
+                }
                 var newTracks: [Track] = []
-                for (_, value) in tracks {
+                for (_, value) in sortedTracks {
                     if let track = value as? [String: AnyObject] {
                         newTracks.append(Track(name: track["name"] as! String,
                                                uri: URL(string: track["uri"] as! String)!,
@@ -72,6 +75,12 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
+        self.tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+        self.tableView.reloadData()
     }
     
     func filterContentForSearchText(searchText: String) {
@@ -109,7 +118,9 @@ extension PlaylistViewController: UISearchResultsUpdating {
 extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchTracks.count
+        var tracks: [Track]
+        tracks = searchActive ? searchTracks : playTracks
+        return tracks.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -119,30 +130,36 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.reuseID, for: indexPath) as! PlaylistTableViewCell
+        
+        var tracks: [Track]
+        tracks = searchActive ? searchTracks : playTracks
+        
         cell.backgroundColor = UIColor .gray
         var artist = ""
         let album = "• "
         
-        let url = searchTracks[indexPath.item].coverArt
+        let url = tracks[indexPath.item].coverArt
         cell.albumArt.sd_setImage(with: url)
         
-        cell.songLabel.text = searchTracks[indexPath.item].name
+        cell.songLabel.text = tracks[indexPath.item].name
         cell.songLabel.font = UIFont(name:"Avenir", size:16)
         cell.songLabel.textColor = UIColor .white
-        for name in searchTracks[indexPath.item].artists {
+        for name in tracks[indexPath.item].artists {
             artist += name
             artist += " "
         }
-        cell.artistAlbumLabel.text = artist + album + searchTracks[indexPath.item].albumName
+        cell.artistAlbumLabel.text = artist + album + tracks[indexPath.item].albumName
         cell.artistAlbumLabel.font = UIFont(name:"Avenir", size:12)
         cell.artistAlbumLabel.textColor = UIColor .white
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let crowdRef = self.ref.child("crowds").child("crowdID")
-        let newSong = crowdRef.childByAutoId()
-        let track = searchTracks[indexPath.row]
-        newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName])
+        if searchActive {
+            let crowdRef = self.ref.child("crowds").child("crowdID")
+            let newSong = crowdRef.childByAutoId()
+            let track = searchTracks[indexPath.row]
+            newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName, "index": playTracks.count + 1])
+        }
     }
 }
