@@ -8,6 +8,7 @@ target 'Crowdify' do
   pod 'SnapKit'
   pod 'Firebase'
   pod 'Firebase/Database'
+  pod 'SDWebImage', '4.0.0-beta2'
 
   # Pods for Crowdify
 

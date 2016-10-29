@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SDWebImage
 
 class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
@@ -19,10 +20,18 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     var searchActive: Bool = false
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+    
         
-        self.ref.child("users").setValue(["username": "hi"])
+//        let crowdRef = self.ref.child("crowds").child("crowdID")
+//        let newSong = crowdRef.childByAutoId()
+//        newSong.setValue(["hi": "bye", "dude": "true"])
+//        
+//        
+//        let refHandle = usersRef.observe(FIRDataEventType.value, with: { (snapshot) in
+//            let postDict = snapshot.value as! [String : AnyObject]
+//            print(postDict)
+//        })
 
         view.addSubview(navBar)
         navBar.backgroundColor = UIColor.blue
@@ -38,6 +47,7 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
         }
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(PlaylistTableViewCell.self, forCellReuseIdentifier: PlaylistTableViewCell.reuseID)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
@@ -78,6 +88,7 @@ extension PlaylistViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
+
     
 }
 
@@ -86,18 +97,14 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchTracks.count
     }
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = PlaylistTableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.reuseID, for: indexPath) as! PlaylistTableViewCell
         var artist = ""
         var album = "• "
         
-        if (!searchActive) {
-            let url = searchTracks[indexPath.item].coverArt
-            let data = try? Data(contentsOf: url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            cell.albumArt.image = UIImage(data: data!)
-        }
+        let url = searchTracks[indexPath.item].coverArt
+        cell.albumArt.sd_setImage(with: url)
         
         cell.songLabel.text = searchTracks[indexPath.item].name
         cell.songLabel.font = UIFont(name:"Avenir", size:16)

@@ -10,7 +10,7 @@ import UIKit
 
 class PlaylistTableViewCell: UITableViewCell {
     
-    static let reuseID = String(describing: self)
+    static let reuseID = "PlaylistTableViewCell"
     var albumArt = UIImageView()
     var songLabel = UILabel()
     var artistLabel = UILabel()
