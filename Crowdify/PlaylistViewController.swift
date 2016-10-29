@@ -9,14 +9,14 @@
 import UIKit
 import FirebaseDatabase
 
-class PlaylistViewController: UIViewController {
+class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
     var searchTracks: [Track] = []
     let searchController = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
     let navBar = UINavigationBar()
     var ref = FIRDatabase.database().reference()
-    let searching = false
+    var searchActive: Bool = false
     
     override func viewDidLoad() {
         
@@ -40,8 +40,17 @@ class PlaylistViewController: UIViewController {
         tableView.dataSource = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
     }
     
     func filterContentForSearchText(searchText: String) {
@@ -70,6 +79,10 @@ extension PlaylistViewController: UISearchResultsUpdating {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
     
+}
+
+extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchTracks.count
     }
@@ -78,36 +91,25 @@ extension PlaylistViewController: UISearchResultsUpdating {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = PlaylistTableViewCell()
         var artist = ""
+        var album = "• "
         
-        let url = searchTracks[indexPath.item].coverArt
-        let data = try? Data(contentsOf: url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-        cell.albumArt.image = UIImage(data: data!)
+        if (!searchActive) {
+            let url = searchTracks[indexPath.item].coverArt
+            let data = try? Data(contentsOf: url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            cell.albumArt.image = UIImage(data: data!)
+        }
         
         cell.songLabel.text = searchTracks[indexPath.item].name
+        cell.songLabel.font = UIFont(name:"Avenir", size:16)
         for name in searchTracks[indexPath.item].artists {
             artist += name
             artist += " "
         }
         cell.artistLabel.text = artist
-        cell.albumLabel.text = searchTracks[indexPath.item].albumName
+        cell.artistLabel.font = UIFont(name:"Avenir", size:12)
+        cell.albumLabel.text = album + searchTracks[indexPath.item].albumName
+        cell.albumLabel.font = UIFont(name:"Avenir", size:12)
         return cell
     }
-    
-}
-
-extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = PlaylistTableViewCell()
-//        
-//        cell.songLabel.text = "Shelter"
-//        cell.artistLabel.text = "Porter Robinson"
-//        cell.albumLabel.text = "Hello"
-//        return cell
-//    }
     
 }

@@ -16,6 +16,7 @@ class PlaylistTableViewCell: UITableViewCell {
     var artistLabel = UILabel()
     var albumLabel = UILabel()
     private let leftRightSpacing: CGFloat = 5
+    private let topBottomSpacing: CGFloat = 5
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -37,15 +38,15 @@ class PlaylistTableViewCell: UITableViewCell {
         }
         songLabel.snp.makeConstraints { make in
             make.left.equalTo(albumArt.snp.right).offset(leftRightSpacing)
-            make.top.equalTo(self)
+            make.top.equalTo(self).offset(topBottomSpacing)
         }
         artistLabel.snp.makeConstraints { make in
             make.left.equalTo(albumArt.snp.right).offset(leftRightSpacing)
-            make.bottom.equalTo(self)
+            make.top.equalTo(songLabel.snp.bottom).offset(topBottomSpacing)
         }
         albumLabel.snp.makeConstraints { make in
             make.left.equalTo(artistLabel.snp.right)
-            make.bottom.equalTo(self)
+            make.top.equalTo(songLabel.snp.bottom).offset(topBottomSpacing)
         }
     }
 
