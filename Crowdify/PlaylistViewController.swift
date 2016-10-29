@@ -45,6 +45,7 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
             make.left.right.bottom.equalTo(view)
             make.top.equalTo(navBar.snp.bottom)
         }
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PlaylistTableViewCell.self, forCellReuseIdentifier: PlaylistTableViewCell.reuseID)
@@ -105,6 +106,7 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.reuseID, for: indexPath) as! PlaylistTableViewCell
+        cell.backgroundColor = UIColor .gray
         var artist = ""
         let album = "• "
         
@@ -113,12 +115,14 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.songLabel.text = searchTracks[indexPath.item].name
         cell.songLabel.font = UIFont(name:"Avenir", size:16)
+        cell.songLabel.textColor = UIColor .white
         for name in searchTracks[indexPath.item].artists {
             artist += name
             artist += " "
         }
         cell.artistAlbumLabel.text = artist + album + searchTracks[indexPath.item].albumName
         cell.artistAlbumLabel.font = UIFont(name:"Avenir", size:12)
+        cell.artistAlbumLabel.textColor = UIColor .white
         return cell
     }
     
