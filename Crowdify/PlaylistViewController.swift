@@ -64,21 +64,43 @@ extension PlaylistViewController: UISearchResultsUpdating {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
     
-}
-
-extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return searchTracks.count
     }
-
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = PlaylistTableViewCell()
+        var artist = ""
         
-        cell.songLabel.text = "Shelter"
-        cell.artistLabel.text = "Porter Robinson"
-        cell.albumLabel.text = "Hello"
+//        let url = searchTracks[indexPath.item].coverArt
+//        let data = try? Data(contentsOf: url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+//        cell.albumArt.image = UIImage(data: data!)
+        
+        cell.songLabel.text = searchTracks[indexPath.item].name
+        for name in searchTracks[indexPath.item].artists {
+            artist += name
+            artist += " "
+        }
+        cell.artistLabel.text = artist
         return cell
     }
+    
+}
+
+extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 1
+//    }
+//
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = PlaylistTableViewCell()
+//        
+//        cell.songLabel.text = "Shelter"
+//        cell.artistLabel.text = "Porter Robinson"
+//        cell.albumLabel.text = "Hello"
+//        return cell
+//    }
     
 }
