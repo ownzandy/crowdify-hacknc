@@ -1,12 +1,19 @@
 PODS:
+  - Firebase (2.5.1)
+  - GeoFire (1.1.3):
+    - Firebase (~> 2.2)
+    - FirebaseOSX (~> 2.4)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
+  - GeoFire (~> 1.1)
   - SnapKit
 
 SPEC CHECKSUMS:
+  Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
+  GeoFire: 88535ea6f82cb0555fcea87b36b7c263a2900ae8
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: 49958dde964744ee1045a5101b3aa803df598022
+PODFILE CHECKSUM: bc9d6adaff16dd2db37cc84ee75dfeedb1538943
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1

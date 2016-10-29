@@ -6,6 +6,7 @@ target 'Crowdify' do
   use_frameworks!
 
   pod 'SnapKit'
+  pod 'GeoFire', '~> 1.1'
 
   # Pods for Crowdify
 
