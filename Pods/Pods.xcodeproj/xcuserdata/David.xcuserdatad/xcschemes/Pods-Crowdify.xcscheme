@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "35D71AFBCCBFF1F2A633EEAE815379F2"
+               BlueprintIdentifier = "8418C06D26F5CD7DD56F11AA231750E3"
                BuildableName = "Pods_Crowdify.framework"
                BlueprintName = "Pods-Crowdify"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "35D71AFBCCBFF1F2A633EEAE815379F2"
+            BlueprintIdentifier = "8418C06D26F5CD7DD56F11AA231750E3"
             BuildableName = "Pods_Crowdify.framework"
             BlueprintName = "Pods-Crowdify"
             ReferencedContainer = "container:Pods.xcodeproj">

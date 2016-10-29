@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		52BBC4D203C1C440B7FD2114 /* Pods_CrowdifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B617832EFA1F75E561D5AAD1 /* Pods_CrowdifyTests.framework */; };
 		5CCAE70D607887DB3C1E5BDE /* Pods_CrowdifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28E452EBE90AE1DE5A69E71 /* Pods_CrowdifyUITests.framework */; };
+		63320C941DC51C4A00065882 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */; };
 		6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */; };
 		6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */; };
 		6E7C7CBF1DC4540200E92DE8 /* CrowdifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CBE1DC4540200E92DE8 /* CrowdifyTests.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		048CB8CB834A721233607E87 /* Pods-CrowdifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowdify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
 		6E7C7CA61DC4540200E92DE8 /* Crowdify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crowdify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */,
 				6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */,
 				6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */,
+				63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */,
 				6E83C1601DC459590056E8DC /* LoginViewController.swift */,
 				6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */,
 				6E7C7CB51DC4540200E92DE8 /* Info.plist */,
@@ -243,6 +246,7 @@
 				6E7C7CC21DC4540200E92DE8 /* Frameworks */,
 				6E7C7CC31DC4540200E92DE8 /* Resources */,
 				32579B1767C3D2E905D0BC9A /* [CP] Copy Pods Resources */,
+				C7C2BA3F03ED624F1F10B838 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7EEA8CCE6F890F7DA576326F /* [CP] Embed Pods Frameworks */ = {
@@ -406,6 +410,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C7C2BA3F03ED624F1F10B838 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D542643EE202333427146630 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -418,7 +437,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FC7945992174984268B4D01B /* [CP] Copy Pods Resources */ = {
@@ -448,7 +467,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -461,6 +480,7 @@
 				6E83C1611DC459590056E8DC /* LoginViewController.swift in Sources */,
 				6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */,
 				6E83C1691DC508F80056E8DC /* PlaylistViewController.swift in Sources */,
+				63320C941DC51C4A00065882 /* PlaylistTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

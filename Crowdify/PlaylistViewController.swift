@@ -30,6 +30,7 @@ class PlaylistViewController: UIViewController {
             make.top.equalTo(navBar.snp.bottom)
         }
         tableView.delegate = self
+        tableView.dataSource = self
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
@@ -50,7 +51,19 @@ extension PlaylistViewController: UISearchResultsUpdating {
     
 }
 
-extension PlaylistViewController: UITableViewDelegate {
+extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = PlaylistTableViewCell()
+        
+        cell.songLabel.text = "Shelter"
+        cell.artistLabel.text = "Porter Robinson"
+        cell.albumLabel.text = "Hello"
+        return cell
+    }
     
 }
