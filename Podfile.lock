@@ -27,12 +27,16 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.0)
   - GoogleToolboxForMac/NSData+zlib (2.1.0):
     - GoogleToolboxForMac/Defines (= 2.1.0)
+  - SDWebImage (4.0.0-beta2):
+    - SDWebImage/Core (= 4.0.0-beta2)
+  - SDWebImage/Core (4.0.0-beta2)
   - SnapKit (3.0.2)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Database
   - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
+  - SDWebImage (= 4.0.0-beta2)
   - SnapKit
 
 EXTERNAL SOURCES:
@@ -54,8 +58,9 @@ SPEC CHECKSUMS:
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  SDWebImage: e379f33106cf8d6766f970c0ef1c3fb609c94d78
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
 
-PODFILE CHECKSUM: d17348f79ef1de3efc30a001381ccc073e52a870
+PODFILE CHECKSUM: 35f12485309a0631ad32d841caf08f3b7475b003
 
 COCOAPODS: 1.1.1

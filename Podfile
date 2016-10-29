@@ -8,7 +8,11 @@ target 'Crowdify' do
   pod 'SnapKit'
   pod 'Firebase'
   pod 'Firebase/Database'
+
   pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
+
+  pod 'SDWebImage', '4.0.0-beta2'
+
   # Pods for Crowdify
 
   target 'CrowdifyTests' do
