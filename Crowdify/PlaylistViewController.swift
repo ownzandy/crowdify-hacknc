@@ -12,6 +12,7 @@ import SDWebImage
 
 class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
+    var playTracks: [Track] = []
     var searchTracks: [Track] = []
     let searchController = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
@@ -21,17 +22,26 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
-//        let crowdRef = self.ref.child("crowds").child("crowdID")
-//        let newSong = crowdRef.childByAutoId()
-//        newSong.setValue(["hi": "bye", "dude": "true"])
-//        
-//        
-//        let refHandle = usersRef.observe(FIRDataEventType.value, with: { (snapshot) in
-//            let postDict = snapshot.value as! [String : AnyObject]
-//            print(postDict)
-//        })
+        let crowdRef = self.ref.child("crowds").child("crowdID")
+        
+        crowdRef.observe(FIRDataEventType.value, with: { snapshot in
+            if let tracks = snapshot.value as? [String: AnyObject] {
+                var newTracks: [Track] = []
+                for (_, value) in tracks {
+                    if let track = value as? [String: AnyObject] {
+                        newTracks.append(Track(name: track["name"] as! String,
+                                               uri: URL(string: track["uri"] as! String)!,
+                                               artists: track["artists"] as! [String],
+                                               coverArt: URL(string: track["coverArt"] as! String)!,
+                                               albumName: track["albumName"] as! String))
+                    }
+                }
+                print(newTracks)
+                self.playTracks = newTracks
+                self.tableView.reloadData()
+            }
+        })
 
         view.addSubview(navBar)
         navBar.backgroundColor = UIColor.blue
@@ -70,8 +80,12 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
             if let items = list?.items as? [SPTPartialTrack] {
                 let tracks: [Track] = items.map { track in
                     let artists: [String] = track.artists.map { artist in
-                        let artistObject = artist as? SPTPartialArtist
-                        return artistObject!.name!
+                        if let artistObject = artist as? SPTPartialArtist {
+                            if let name = artistObject.name {
+                                return name
+                            }
+                        }
+                        return ""
                     }
                     return Track(name: track.name, uri: track.playableUri, artists: artists, coverArt: track.album.smallestCover.imageURL, albumName: track.album.name)
                 }
@@ -88,7 +102,6 @@ extension PlaylistViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         filterContentForSearchText(searchText: searchController.searchBar.text!)
     }
-
     
 }
 
@@ -117,5 +130,12 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         cell.albumLabel.text = album + searchTracks[indexPath.item].albumName
         cell.albumLabel.font = UIFont(name:"Avenir", size:12)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let crowdRef = self.ref.child("crowds").child("crowdID")
+        let newSong = crowdRef.childByAutoId()
+        let track = searchTracks[indexPath.row]
+        newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName])
     }
 }
