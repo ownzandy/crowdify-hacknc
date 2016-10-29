@@ -1,0 +1,725 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52BBC4D203C1C440B7FD2114 /* Pods_CrowdifyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B617832EFA1F75E561D5AAD1 /* Pods_CrowdifyTests.framework */; };
+		5CCAE70D607887DB3C1E5BDE /* Pods_CrowdifyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28E452EBE90AE1DE5A69E71 /* Pods_CrowdifyUITests.framework */; };
+		6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */; };
+		6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */; };
+		6E7C7CBF1DC4540200E92DE8 /* CrowdifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CBE1DC4540200E92DE8 /* CrowdifyTests.swift */; };
+		6E7C7CCA1DC4540200E92DE8 /* CrowdifyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CC91DC4540200E92DE8 /* CrowdifyUITests.swift */; };
+		6E83C1551DC454BB0056E8DC /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E83C1521DC454BB0056E8DC /* SpotifyAudioPlayback.framework */; };
+		6E83C1561DC454BB0056E8DC /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E83C1531DC454BB0056E8DC /* SpotifyAuthentication.framework */; };
+		6E83C1571DC454BB0056E8DC /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E83C1541DC454BB0056E8DC /* SpotifyMetadata.framework */; };
+		6E83C1591DC456080056E8DC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E83C1581DC456080056E8DC /* AVFoundation.framework */; };
+		6E83C15B1DC456130056E8DC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E83C15A1DC456130056E8DC /* SystemConfiguration.framework */; };
+		6E83C1611DC459590056E8DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C1601DC459590056E8DC /* LoginViewController.swift */; };
+		6E83C1651DC469BD0056E8DC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */; };
+		ABCE148DF474E53F7B78556B /* Pods_Crowdify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6E7C7CBB1DC4540200E92DE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E7C7C9E1DC4540100E92DE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E7C7CA51DC4540100E92DE8;
+			remoteInfo = Crowdify;
+		};
+		6E7C7CC61DC4540200E92DE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6E7C7C9E1DC4540100E92DE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6E7C7CA51DC4540100E92DE8;
+			remoteInfo = Crowdify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		048CB8CB834A721233607E87 /* Pods-CrowdifyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crowdify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7C7CA61DC4540200E92DE8 /* Crowdify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crowdify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6E7C7CB51DC4540200E92DE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E7C7CBA1DC4540200E92DE8 /* CrowdifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrowdifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7C7CBE1DC4540200E92DE8 /* CrowdifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowdifyTests.swift; sourceTree = "<group>"; };
+		6E7C7CC01DC4540200E92DE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E7C7CC51DC4540200E92DE8 /* CrowdifyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrowdifyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E7C7CC91DC4540200E92DE8 /* CrowdifyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrowdifyUITests.swift; sourceTree = "<group>"; };
+		6E7C7CCB1DC4540200E92DE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E83C1521DC454BB0056E8DC /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		6E83C1531DC454BB0056E8DC /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		6E83C1541DC454BB0056E8DC /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		6E83C1581DC456080056E8DC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6E83C15A1DC456130056E8DC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6E83C15C1DC4573A0056E8DC /* Crowdify-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crowdify-Bridging-Header.h"; sourceTree = "<group>"; };
+		6E83C1601DC459590056E8DC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		802D087253DFEDEFC6466568 /* Pods-CrowdifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		98B041F674F33E86109D2558 /* Pods-Crowdify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.debug.xcconfig"; sourceTree = "<group>"; };
+		ABD7027B8562CE7DF7BDB34A /* Pods-CrowdifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B617832EFA1F75E561D5AAD1 /* Pods_CrowdifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDE1DBE92FD636622366E07A /* Pods-Crowdify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.release.xcconfig"; sourceTree = "<group>"; };
+		C7CFF54AC9EC19338D9F9466 /* Pods-CrowdifyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.release.xcconfig"; sourceTree = "<group>"; };
+		F28E452EBE90AE1DE5A69E71 /* Pods_CrowdifyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E7C7CA31DC4540100E92DE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E83C15B1DC456130056E8DC /* SystemConfiguration.framework in Frameworks */,
+				6E83C1591DC456080056E8DC /* AVFoundation.framework in Frameworks */,
+				6E83C1551DC454BB0056E8DC /* SpotifyAudioPlayback.framework in Frameworks */,
+				6E83C1571DC454BB0056E8DC /* SpotifyMetadata.framework in Frameworks */,
+				6E83C1561DC454BB0056E8DC /* SpotifyAuthentication.framework in Frameworks */,
+				ABCE148DF474E53F7B78556B /* Pods_Crowdify.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E7C7CB71DC4540200E92DE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52BBC4D203C1C440B7FD2114 /* Pods_CrowdifyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E7C7CC21DC4540200E92DE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CCAE70D607887DB3C1E5BDE /* Pods_CrowdifyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E7C7C9D1DC4540100E92DE8 = {
+			isa = PBXGroup;
+			children = (
+				6E83C14B1DC4546A0056E8DC /* Frameworks */,
+				6E7C7CA81DC4540200E92DE8 /* Crowdify */,
+				6E7C7CBD1DC4540200E92DE8 /* CrowdifyTests */,
+				6E7C7CC81DC4540200E92DE8 /* CrowdifyUITests */,
+				6E7C7CA71DC4540200E92DE8 /* Products */,
+				B71EFF5BB6FEFB2319B6BCAD /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		6E7C7CA71DC4540200E92DE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E7C7CA61DC4540200E92DE8 /* Crowdify.app */,
+				6E7C7CBA1DC4540200E92DE8 /* CrowdifyTests.xctest */,
+				6E7C7CC51DC4540200E92DE8 /* CrowdifyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E7C7CA81DC4540200E92DE8 /* Crowdify */ = {
+			isa = PBXGroup;
+			children = (
+				6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */,
+				6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */,
+				6E83C1601DC459590056E8DC /* LoginViewController.swift */,
+				6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */,
+				6E7C7CB51DC4540200E92DE8 /* Info.plist */,
+				6E83C15C1DC4573A0056E8DC /* Crowdify-Bridging-Header.h */,
+			);
+			path = Crowdify;
+			sourceTree = "<group>";
+		};
+		6E7C7CBD1DC4540200E92DE8 /* CrowdifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				6E7C7CBE1DC4540200E92DE8 /* CrowdifyTests.swift */,
+				6E7C7CC01DC4540200E92DE8 /* Info.plist */,
+			);
+			path = CrowdifyTests;
+			sourceTree = "<group>";
+		};
+		6E7C7CC81DC4540200E92DE8 /* CrowdifyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6E7C7CC91DC4540200E92DE8 /* CrowdifyUITests.swift */,
+				6E7C7CCB1DC4540200E92DE8 /* Info.plist */,
+			);
+			path = CrowdifyUITests;
+			sourceTree = "<group>";
+		};
+		6E83C14B1DC4546A0056E8DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E83C15A1DC456130056E8DC /* SystemConfiguration.framework */,
+				6E83C1581DC456080056E8DC /* AVFoundation.framework */,
+				6E83C1521DC454BB0056E8DC /* SpotifyAudioPlayback.framework */,
+				6E83C1531DC454BB0056E8DC /* SpotifyAuthentication.framework */,
+				6E83C1541DC454BB0056E8DC /* SpotifyMetadata.framework */,
+				1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */,
+				B617832EFA1F75E561D5AAD1 /* Pods_CrowdifyTests.framework */,
+				F28E452EBE90AE1DE5A69E71 /* Pods_CrowdifyUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B71EFF5BB6FEFB2319B6BCAD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98B041F674F33E86109D2558 /* Pods-Crowdify.debug.xcconfig */,
+				BDE1DBE92FD636622366E07A /* Pods-Crowdify.release.xcconfig */,
+				ABD7027B8562CE7DF7BDB34A /* Pods-CrowdifyTests.debug.xcconfig */,
+				C7CFF54AC9EC19338D9F9466 /* Pods-CrowdifyTests.release.xcconfig */,
+				802D087253DFEDEFC6466568 /* Pods-CrowdifyUITests.debug.xcconfig */,
+				048CB8CB834A721233607E87 /* Pods-CrowdifyUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E7C7CA51DC4540100E92DE8 /* Crowdify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E7C7CCE1DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "Crowdify" */;
+			buildPhases = (
+				FDB0FEC69E7F899CB90D20A3 /* [CP] Check Pods Manifest.lock */,
+				6E7C7CA21DC4540100E92DE8 /* Sources */,
+				6E7C7CA31DC4540100E92DE8 /* Frameworks */,
+				6E7C7CA41DC4540100E92DE8 /* Resources */,
+				7EEA8CCE6F890F7DA576326F /* [CP] Embed Pods Frameworks */,
+				07F56F876A005E4097F6E2E6 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Crowdify;
+			productName = Crowdify;
+			productReference = 6E7C7CA61DC4540200E92DE8 /* Crowdify.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6E7C7CB91DC4540200E92DE8 /* CrowdifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E7C7CD11DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "CrowdifyTests" */;
+			buildPhases = (
+				D542643EE202333427146630 /* [CP] Check Pods Manifest.lock */,
+				6E7C7CB61DC4540200E92DE8 /* Sources */,
+				6E7C7CB71DC4540200E92DE8 /* Frameworks */,
+				6E7C7CB81DC4540200E92DE8 /* Resources */,
+				3594AA98B7C1FF3628D44647 /* [CP] Embed Pods Frameworks */,
+				FC7945992174984268B4D01B /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E7C7CBC1DC4540200E92DE8 /* PBXTargetDependency */,
+			);
+			name = CrowdifyTests;
+			productName = CrowdifyTests;
+			productReference = 6E7C7CBA1DC4540200E92DE8 /* CrowdifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6E7C7CC41DC4540200E92DE8 /* CrowdifyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E7C7CD41DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "CrowdifyUITests" */;
+			buildPhases = (
+				6851447A0589B5137ECC5501 /* [CP] Check Pods Manifest.lock */,
+				6E7C7CC11DC4540200E92DE8 /* Sources */,
+				6E7C7CC21DC4540200E92DE8 /* Frameworks */,
+				6E7C7CC31DC4540200E92DE8 /* Resources */,
+				32579B1767C3D2E905D0BC9A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6E7C7CC71DC4540200E92DE8 /* PBXTargetDependency */,
+			);
+			name = CrowdifyUITests;
+			productName = CrowdifyUITests;
+			productReference = 6E7C7CC51DC4540200E92DE8 /* CrowdifyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E7C7C9E1DC4540100E92DE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Andy Wang";
+				TargetAttributes = {
+					6E7C7CA51DC4540100E92DE8 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					6E7C7CB91DC4540200E92DE8 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6E7C7CA51DC4540100E92DE8;
+					};
+					6E7C7CC41DC4540200E92DE8 = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6E7C7CA51DC4540100E92DE8;
+					};
+				};
+			};
+			buildConfigurationList = 6E7C7CA11DC4540100E92DE8 /* Build configuration list for PBXProject "Crowdify" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6E7C7C9D1DC4540100E92DE8;
+			productRefGroup = 6E7C7CA71DC4540200E92DE8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E7C7CA51DC4540100E92DE8 /* Crowdify */,
+				6E7C7CB91DC4540200E92DE8 /* CrowdifyTests */,
+				6E7C7CC41DC4540200E92DE8 /* CrowdifyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E7C7CA41DC4540100E92DE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E83C1651DC469BD0056E8DC /* Launch Screen.storyboard in Resources */,
+				6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E7C7CB81DC4540200E92DE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E7C7CC31DC4540200E92DE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07F56F876A005E4097F6E2E6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32579B1767C3D2E905D0BC9A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3594AA98B7C1FF3628D44647 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6851447A0589B5137ECC5501 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7EEA8CCE6F890F7DA576326F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D542643EE202333427146630 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FC7945992174984268B4D01B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDB0FEC69E7F899CB90D20A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E7C7CA21DC4540100E92DE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E83C1611DC459590056E8DC /* LoginViewController.swift in Sources */,
+				6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E7C7CB61DC4540200E92DE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E7C7CBF1DC4540200E92DE8 /* CrowdifyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E7C7CC11DC4540200E92DE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E7C7CCA1DC4540200E92DE8 /* CrowdifyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6E7C7CBC1DC4540200E92DE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E7C7CA51DC4540100E92DE8 /* Crowdify */;
+			targetProxy = 6E7C7CBB1DC4540200E92DE8 /* PBXContainerItemProxy */;
+		};
+		6E7C7CC71DC4540200E92DE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6E7C7CA51DC4540100E92DE8 /* Crowdify */;
+			targetProxy = 6E7C7CC61DC4540200E92DE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6E7C7CCC1DC4540200E92DE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6E7C7CCD1DC4540200E92DE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E7C7CCF1DC4540200E92DE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98B041F674F33E86109D2558 /* Pods-Crowdify.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Crowdify/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.Crowdify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Crowdify/Crowdify-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6E7C7CD01DC4540200E92DE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDE1DBE92FD636622366E07A /* Pods-Crowdify.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Crowdify/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.Crowdify;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Crowdify/Crowdify-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		6E7C7CD21DC4540200E92DE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABD7027B8562CE7DF7BDB34A /* Pods-CrowdifyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CrowdifyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.CrowdifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crowdify.app/Crowdify";
+			};
+			name = Debug;
+		};
+		6E7C7CD31DC4540200E92DE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7CFF54AC9EC19338D9F9466 /* Pods-CrowdifyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CrowdifyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.CrowdifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Crowdify.app/Crowdify";
+			};
+			name = Release;
+		};
+		6E7C7CD51DC4540200E92DE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 802D087253DFEDEFC6466568 /* Pods-CrowdifyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = CrowdifyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.CrowdifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Crowdify;
+			};
+			name = Debug;
+		};
+		6E7C7CD61DC4540200E92DE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 048CB8CB834A721233607E87 /* Pods-CrowdifyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = CrowdifyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.CrowdifyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Crowdify;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E7C7CA11DC4540100E92DE8 /* Build configuration list for PBXProject "Crowdify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E7C7CCC1DC4540200E92DE8 /* Debug */,
+				6E7C7CCD1DC4540200E92DE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E7C7CCE1DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "Crowdify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E7C7CCF1DC4540200E92DE8 /* Debug */,
+				6E7C7CD01DC4540200E92DE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E7C7CD11DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "CrowdifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E7C7CD21DC4540200E92DE8 /* Debug */,
+				6E7C7CD31DC4540200E92DE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E7C7CD41DC4540200E92DE8 /* Build configuration list for PBXNativeTarget "CrowdifyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E7C7CD51DC4540200E92DE8 /* Debug */,
+				6E7C7CD61DC4540200E92DE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E7C7C9E1DC4540100E92DE8 /* Project object */;
+}
