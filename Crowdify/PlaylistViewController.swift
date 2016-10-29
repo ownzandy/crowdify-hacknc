@@ -10,14 +10,14 @@ import UIKit
 import FirebaseDatabase
 import SDWebImage
 
-class PlaylistViewController: UIViewController {
+class PlaylistViewController: UIViewController, UISearchBarDelegate {
     
     var searchTracks: [Track] = []
     let searchController = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
     let navBar = UINavigationBar()
     var ref = FIRDatabase.database().reference()
-    let searching = false
+    var searchActive: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +50,17 @@ class PlaylistViewController: UIViewController {
         tableView.register(PlaylistTableViewCell.self, forCellReuseIdentifier: PlaylistTableViewCell.reuseID)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
     }
     
     func filterContentForSearchText(searchText: String) {
@@ -92,19 +101,21 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlaylistTableViewCell.reuseID, for: indexPath) as! PlaylistTableViewCell
         var artist = ""
+        let album = "• "
         
         let url = searchTracks[indexPath.item].coverArt
         cell.albumArt.sd_setImage(with: url)
         
         cell.songLabel.text = searchTracks[indexPath.item].name
+        cell.songLabel.font = UIFont(name:"Avenir", size:16)
         for name in searchTracks[indexPath.item].artists {
             artist += name
             artist += " "
         }
         cell.artistLabel.text = artist
-        cell.albumLabel.text = searchTracks[indexPath.item].albumName
+        cell.artistLabel.font = UIFont(name:"Avenir", size:12)
+        cell.albumLabel.text = album + searchTracks[indexPath.item].albumName
+        cell.albumLabel.font = UIFont(name:"Avenir", size:12)
         return cell
     }
-    
-    
 }
