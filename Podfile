@@ -6,6 +6,7 @@ target 'Crowdify' do
   use_frameworks!
 
   pod 'SnapKit'
+  pod 'Firebase/Core'
 
   # Pods for Crowdify
 

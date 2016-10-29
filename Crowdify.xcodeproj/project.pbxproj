@@ -20,6 +20,7 @@
 		6E83C15B1DC456130056E8DC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E83C15A1DC456130056E8DC /* SystemConfiguration.framework */; };
 		6E83C1611DC459590056E8DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C1601DC459590056E8DC /* LoginViewController.swift */; };
 		6E83C1651DC469BD0056E8DC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */; };
+		6E83C1671DC4F8F20056E8DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E83C1661DC4F8F20056E8DC /* GoogleService-Info.plist */; };
 		ABCE148DF474E53F7B78556B /* Pods_Crowdify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1443F21D219BCA9F1F565F87 /* Pods_Crowdify.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		6E83C15C1DC4573A0056E8DC /* Crowdify-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crowdify-Bridging-Header.h"; sourceTree = "<group>"; };
 		6E83C1601DC459590056E8DC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		6E83C1661DC4F8F20056E8DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		802D087253DFEDEFC6466568 /* Pods-CrowdifyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		98B041F674F33E86109D2558 /* Pods-Crowdify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.debug.xcconfig"; sourceTree = "<group>"; };
 		ABD7027B8562CE7DF7BDB34A /* Pods-CrowdifyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrowdifyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		6E7C7CA81DC4540200E92DE8 /* Crowdify */ = {
 			isa = PBXGroup;
 			children = (
+				6E83C1661DC4F8F20056E8DC /* GoogleService-Info.plist */,
 				6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */,
 				6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */,
 				6E83C1601DC459590056E8DC /* LoginViewController.swift */,
@@ -304,6 +307,7 @@
 			files = (
 				6E83C1651DC469BD0056E8DC /* Launch Screen.storyboard in Resources */,
 				6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */,
+				6E83C1671DC4F8F20056E8DC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,7 +597,10 @@
 				);
 				INFOPLIST_FILE = Crowdify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.Crowdify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Crowdify/Crowdify-Bridging-Header.h";
@@ -614,7 +621,10 @@
 				);
 				INFOPLIST_FILE = Crowdify/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ownzandy.Crowdify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Crowdify/Crowdify-Bridging-Header.h";

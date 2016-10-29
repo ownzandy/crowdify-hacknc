@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Crowdify.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC7E77646B987523687BDF804B7838E7</key>
+		<key>92BB131FA876445E027D20AE23EA7B5F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F23B087F8EFCA96BC75AD36F531348AA</key>
+		<key>D987A3127CFE63F1EA7B8A4854CE6401</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4EABE9D1283D01406BEF7FA566B2E61</key>
 		<dict>
 			<key>primary</key>
 			<true/>

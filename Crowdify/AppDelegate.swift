@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FIRApp.configure()
         SPTAuth.defaultInstance().clientID = "1e6187fb28dd41308bf132bec985eb76"
         SPTAuth.defaultInstance().redirectURL = URL(string: "crowdify-hacknc://callback")
         SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope]
