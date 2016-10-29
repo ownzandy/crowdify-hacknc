@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+import SnapKit
+
+class EditorViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}
