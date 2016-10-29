@@ -10,6 +10,7 @@ import UIKit
 
 class PlaylistViewController: UIViewController {
     
+    var searchTracks: [Track] = []
     let searchController = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
     let navBar = UINavigationBar()
@@ -38,7 +39,21 @@ class PlaylistViewController: UIViewController {
     }
     
     func filterContentForSearchText(searchText: String) {
-        tableView.reloadData()
+        let accessToken = UserDefaults.standard.object(forKey: "token") as! String
+        SPTSearch.perform(withQuery: searchText, queryType: SPTSearchQueryType.queryTypeTrack, offset: 0, accessToken: accessToken, market: nil, callback: { error, result -> Void in
+            let list = result as? SPTListPage
+            if let items = list?.items as? [SPTPartialTrack] {
+                let tracks: [Track] = items.map { track in
+                    let artists: [String] = track.artists.map { artist in
+                        let artistObject = artist as? SPTPartialArtist
+                        return artistObject!.name!
+                    }
+                    return Track(name: track.name, uri: track.playableUri, artists: artists, coverArt: track.album.smallestCover.imageURL)
+                }
+                self.searchTracks = tracks
+                self.tableView.reloadData()
+            }
+        })
     }
     
 }
