@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class PlaylistViewController: UIViewController {
     
@@ -14,9 +15,14 @@ class PlaylistViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     let tableView = UITableView()
     let navBar = UINavigationBar()
+    var ref = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
+        
+        self.ref.child("users").setValue(["username": "hi"])
 
         view.addSubview(navBar)
         navBar.backgroundColor = UIColor.blue
@@ -48,7 +54,7 @@ class PlaylistViewController: UIViewController {
                         let artistObject = artist as? SPTPartialArtist
                         return artistObject!.name!
                     }
-                    return Track(name: track.name, uri: track.playableUri, artists: artists, coverArt: track.album.smallestCover.imageURL)
+                    return Track(name: track.name, uri: track.playableUri, artists: artists, coverArt: track.album.smallestCover.imageURL, albumName: track.album.name)
                 }
                 self.searchTracks = tracks
                 self.tableView.reloadData()

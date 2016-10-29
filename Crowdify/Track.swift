@@ -13,4 +13,5 @@ struct Track {
     let uri: URL
     let artists: [String]
     let coverArt: URL
+    let albumName: String
 }
