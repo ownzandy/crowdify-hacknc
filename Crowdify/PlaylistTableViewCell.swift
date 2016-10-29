@@ -44,7 +44,7 @@ class PlaylistTableViewCell: UITableViewCell {
             make.bottom.equalTo(self)
         }
         albumLabel.snp.makeConstraints { make in
-            make.left.equalTo(artistLabel.snp.right).offset(leftRightSpacing)
+            make.left.equalTo(artistLabel.snp.right)
             make.bottom.equalTo(self)
         }
     }

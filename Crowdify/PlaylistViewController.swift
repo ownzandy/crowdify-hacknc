@@ -16,9 +16,9 @@ class PlaylistViewController: UIViewController {
     let tableView = UITableView()
     let navBar = UINavigationBar()
     var ref = FIRDatabase.database().reference()
+    let searching = false
     
     override func viewDidLoad() {
-        
         
         super.viewDidLoad()
         
@@ -79,9 +79,9 @@ extension PlaylistViewController: UISearchResultsUpdating {
         let cell = PlaylistTableViewCell()
         var artist = ""
         
-//        let url = searchTracks[indexPath.item].coverArt
-//        let data = try? Data(contentsOf: url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-//        cell.albumArt.image = UIImage(data: data!)
+        let url = searchTracks[indexPath.item].coverArt
+        let data = try? Data(contentsOf: url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+        cell.albumArt.image = UIImage(data: data!)
         
         cell.songLabel.text = searchTracks[indexPath.item].name
         for name in searchTracks[indexPath.item].artists {
@@ -89,6 +89,7 @@ extension PlaylistViewController: UISearchResultsUpdating {
             artist += " "
         }
         cell.artistLabel.text = artist
+        cell.albumLabel.text = searchTracks[indexPath.item].albumName
         return cell
     }
     
