@@ -27,7 +27,7 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
         
         player?.playbackDelegate = self
         
-        let crowdRef = self.ref.child("crowds").child(crowdID).queryOrdered(byChild: "index")
+        let crowdRef = self.ref.child("crowds").child(crowdID).child("songs").queryOrdered(byChild: "index")
         
         crowdRef.observe(FIRDataEventType.value, with: { snapshot in
             if let tracks = snapshot.value as? [String: AnyObject] {
@@ -138,23 +138,26 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
 extension PlaylistViewController: SPTAudioStreamingPlaybackDelegate {
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: String!) {
-//        let crowdRef = self.ref.child("crowds").child(crowdID)
-//        crowdRef.observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
-//            if let crowd = snapshot.value as? [String: AnyObject] {
-//                if let currentSong = crowd["currentSong"] as? String, let uri = trackUri as? String {
-//                    if(currentSong == uri) {
-//                        let time = crowd["currentTime"] as? Double
-//                        let currentTime = Date().timeIntervalSince1970
-//                        player?.seek(to: , callback: { error in
-//                            if(error != nil) {
-//                                print("errored when seeking", error)
-//                            }
-//                            
-//                        })
-//                    }
-//                }
-//            }
-//        })
+        let crowdRef = self.ref.child("crowds").child(crowdID)
+        crowdRef.observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
+            let currentTime = Date().timeIntervalSince1970
+            if let crowd = snapshot.value as? [String: AnyObject], let uri = trackUri {
+                if let currentSong = crowd["currentSong"] as? String, let time = crowd["currentTime"] as? Double {
+                    if(currentSong == uri) {
+                        print(currentTime - time)
+                        self.player?.seek(to: currentTime - time, callback: { error in
+                            if(error != nil) {
+                                print("errored when seeking", error)
+                                return
+                            }
+                            print("successfully sync'd")
+                            return
+                        })
+                    }
+                }
+                crowdRef.updateChildValues(["currentSong": trackUri!, "currentTime": currentTime])
+            }
+        })
     }
 }
 
@@ -206,7 +209,7 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if searchActive {
-            let crowdRef = self.ref.child("crowds").child(crowdID)
+            let crowdRef = self.ref.child("crowds").child(crowdID).child("songs")
             let newSong = crowdRef.childByAutoId()
             let track = searchTracks[indexPath.row]
             newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName, "index": playTracks.count + 1])
