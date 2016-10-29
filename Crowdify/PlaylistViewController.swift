@@ -18,11 +18,19 @@ class PlaylistViewController: UIViewController {
     var ref = FIRDatabase.database().reference()
     
     override func viewDidLoad() {
-        
-        
+
         super.viewDidLoad()
+    
         
-        self.ref.child("users").setValue(["username": "hi"])
+//        let crowdRef = self.ref.child("crowds").child("crowdID")
+//        let newSong = crowdRef.childByAutoId()
+//        newSong.setValue(["hi": "bye", "dude": "true"])
+//        
+//        
+//        let refHandle = usersRef.observe(FIRDataEventType.value, with: { (snapshot) in
+//            let postDict = snapshot.value as! [String : AnyObject]
+//            print(postDict)
+//        })
 
         view.addSubview(navBar)
         navBar.backgroundColor = UIColor.blue
