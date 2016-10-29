@@ -16,6 +16,7 @@ let endLabel = UILabel(frame: CGRect.zero)//init(origin: CGPoint.init(x: 20, y:2
 
 class EditorViewController: UIViewController {
     let rangeSlider = MARKRangeSlider(frame: CGRect.zero)
+    var songDurationMS = 10000 // TODO: take in as argument
 
     /*
     let rangeSlider = RangeSlider(frame: CGRect.zero)
@@ -58,11 +59,31 @@ class EditorViewController: UIViewController {
     */
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
         rangeSlider.setMinValue(0.0, maxValue: 1.0)
         rangeSlider.setLeftValue(0.2, rightValue: 0.7)
         rangeSlider.minimumDistance = 0.2
         view.addSubview(self.rangeSlider)
+        
+        startLabel.text = rangeSlider.leftValue.description
+        endLabel.text = rangeSlider.rightValue.description
+        
+        view.addSubview(startLabel)
+        view.addSubview(endLabel)
+        
+        startLabel.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.centerX.equalTo(rangeSlider.leftThumbView)
+            make.centerY.equalTo(rangeSlider).offset(-20)
+        }
+        
+        endLabel.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.centerX.equalTo(rangeSlider.rightThumbView)
+            make.centerY.equalTo(rangeSlider).offset(30)
+        }
+ 
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,6 +97,8 @@ class EditorViewController: UIViewController {
         print(String(format: "%0.2f - %0.2f", slider.leftValue, slider.rightValue))
     
         //startLabel.center.x = CGFloat(slider)
-        //startLabel.center.y = CGFloat(rangeSlider.upperValue)
+        //startLabel.center.x = CGFloat(slider.leftValue * 100)
+        startLabel.text = slider.leftValue.description
+        endLabel.text = slider.rightValue.description
     }
 }
