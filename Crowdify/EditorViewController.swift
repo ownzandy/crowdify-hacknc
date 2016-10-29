@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 import SnapKit
+import MARKRangeSlider
 
 let startLabel = UILabel(frame: CGRect.zero)
-let endLabel = UILabel(frame: CGRect.init(origin: CGPoint.init(x: 20, y:20), size: CGSize.init(width: 10, height: 10)))
+let endLabel = UILabel(frame: CGRect.zero)//init(origin: CGPoint.init(x: 20, y:20), size: CGSize.init(width: 10, height: 10)))
 
 class EditorViewController: UIViewController {
+    let rangeSlider = MARKRangeSlider(frame: CGRect.zero)
+
+    /*
     let rangeSlider = RangeSlider(frame: CGRect.zero)
     
     override func viewDidLoad() {
@@ -26,24 +30,21 @@ class EditorViewController: UIViewController {
         
         startLabel.text = "0"
         endLabel.text = "100"
-        
+        /*
         startLabel.snp.makeConstraints { make in
             make.width.height.equalTo(100)
-            //make.centerX.centerY.equalTo(view)
-            //make.centerX.equalTo(view)
             make.centerX.equalTo(rangeSlider).offset(rangeSlider.lowerValue)
             make.centerY.equalTo(rangeSlider).offset(-15)
         }
         
         endLabel.snp.makeConstraints { make in
             make.width.height.equalTo(100)
-            //make.centerX.centerY.equalTo(view)
-            make.centerX.equalTo(rangeSlider).offset(-50)
+            make.centerX.equalTo(rangeSlider).offset(50)
             make.centerY.equalTo(rangeSlider).offset(-15)
         }
-        
-        rangeSlider.addTarget(self, action: Selector("rangeSliderValueChanged:"), for: .valueChanged)
-        
+        */
+        rangeSlider.addTarget(self, action: "rangeSliderValueChanged:", for: .valueChanged)
+        /*
         //let time = DispatchTime.now().rawValue//dispatch_time(dispatch_time_t(DispatchTime.now().rawValue), Int64(NSEC_PER_SEC))
         //ispatch_after(time, DispatchQueue.main, {//dispatch_get_main_queue()) {
         DispatchQueue.main.async {
@@ -51,6 +52,17 @@ class EditorViewController: UIViewController {
             self.rangeSlider.curvaceousness = 1.0
             //self.startLabel.center.x = CGFloat(self.rangeSlider.lowerValue)
         }
+ */
+    }
+ 
+    */
+    
+    override func viewDidLoad() {
+        rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
+        rangeSlider.setMinValue(0.0, maxValue: 1.0)
+        rangeSlider.setLeftValue(0.2, rightValue: 0.7)
+        rangeSlider.minimumDistance = 0.2
+        view.addSubview(self.rangeSlider)
     }
     
     override func viewDidLayoutSubviews() {
@@ -60,10 +72,10 @@ class EditorViewController: UIViewController {
                                    width: width, height: 31.0)
     }
     
-    func rangeSliderValueChanged(rangeSlider: RangeSlider) {
-        print("Range slider value changed: (\(rangeSlider.lowerValue) \(rangeSlider.upperValue))")
-        
-        startLabel.center.x = CGFloat(rangeSlider.lowerValue)
-        startLabel.center.y = CGFloat(rangeSlider.upperValue)
+    func rangeSliderValueDidChange(_ slider: MARKRangeSlider) {
+        print(String(format: "%0.2f - %0.2f", slider.leftValue, slider.rightValue))
+    
+        //startLabel.center.x = CGFloat(slider)
+        //startLabel.center.y = CGFloat(rangeSlider.upperValue)
     }
 }

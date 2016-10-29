@@ -9,6 +9,7 @@ target 'Crowdify' do
   pod 'Firebase'
   pod 'Firebase/Database'
   pod 'SDWebImage', '4.0.0-beta2'
+  pod 'MARKRangeSlider'
 
   # Pods for Crowdify
 
