@@ -17,29 +17,16 @@ let endLabel = UILabel(frame: CGRect.zero)//init(origin: CGPoint.init(x: 20, y:2
 class EditorViewController: UIViewController {
     let rangeSlider = MARKRangeSlider(frame: CGRect.zero)
     var songDurationMS = 400000 // TODO: take in as argument
+    let songImage = "cat.jpg"
+    let songTitle = "Shelter"
+    let songArtists = ["Porter Robinson", "Madeon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // Add song info at top
-        let imageName = "cat.jpg"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image!)
-        imageView.layer.borderWidth = 2.0
-        imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = UIColor.black.cgColor
-        imageView.layer.cornerRadius = 50.0 // TODO: get this value dynamically
-        imageView.clipsToBounds = true
-        view.addSubview(imageView)
-        
-        imageView.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.top.equalTo(view).offset(50)
-            make.centerX.equalTo(view)
-        }
-        view.addSubview(imageView)
-        
+        self.addSongImage(imageName: self.songImage)
+        self.addSongTitle(text: self.songTitle)
+        self.addSongArtists(artists: self.songArtists)
         
         // Config rangeSlider
         rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
@@ -56,7 +43,7 @@ class EditorViewController: UIViewController {
             make.width.equalTo(view.bounds.width - 2.0 * margin)
             make.height.equalTo(51.0)
             make.centerX.equalTo(view.center.x)
-            make.centerY.equalTo(view.center.y).offset(200)
+            make.centerY.equalTo(view.center.y)
         }
     
         startLabel.text = self.percentToTime(percentage: rangeSlider.leftValue, durationMS: self.songDurationMS)
@@ -75,6 +62,48 @@ class EditorViewController: UIViewController {
             make.centerX.equalTo(rangeSlider.rightThumbView).offset(30)
             make.centerY.equalTo(rangeSlider).offset(30)
         }
+    }
+    
+    
+    func addSongArtists(artists: [String]) {
+        let artist = UILabel(frame: CGRect.zero)
+        artist.text = artists.joined(separator: ", ")
+        artist.font = UIFont(name:"HelveticaNeue", size: 16.0)
+        artist.textColor = UIColor.gray
+        view.addSubview(artist)
+        artist.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center.x)
+            make.centerY.equalTo(view.center.y).offset(200)
+        }
+    }
+    
+    func addSongTitle(text: String) {
+        let title = UILabel(frame: CGRect.zero)
+        title.text = text
+        title.font = UIFont(name:"HelveticaNeue", size: 18.0)
+        view.addSubview(title)
+        title.snp.makeConstraints { make in
+            make.centerX.equalTo(view.center.x)
+            make.centerY.equalTo(view.center.y).offset(180)
+        }
+    }
+    
+    func addSongImage(imageName: String) {
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.layer.borderWidth = 2.0
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = 50.0 // TODO: get this value dynamically
+        imageView.clipsToBounds = true
+        view.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.top.equalTo(view).offset(50)
+            make.centerX.equalTo(view)
+        }
+        view.addSubview(imageView)
     }
     
     func percentToTime(percentage: CGFloat, durationMS: Int) -> String {
