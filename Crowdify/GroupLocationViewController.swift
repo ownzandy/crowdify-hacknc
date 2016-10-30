@@ -33,10 +33,7 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
-        
-    
-        
-        
+ 
         let createGroupButton = UIButton()
         view.addSubview(createGroupButton)
         createGroupButton.backgroundColor = UIColor.green
@@ -126,23 +123,28 @@ extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSourc
         let currentArray : [String]
         let currentRef = geofireRef.child(joinKey).child("followers")
         
-        currentRef.observeSingleEvent(of: .value, with: { snapshot in
-            
-            if !snapshot.exists() { return }
-            
-            if let currentFollowers = snapshot.value["followers"] as? [String: AnyObject] {
-                currentArray = currentFollowers
-
-            }
-            
-
+//        currentRef.observeSingleEvent(of: .value, with: { snapshot in
+//            
+//            if !snapshot.exists() { return }
+//            
+//            if let currentFollowers = snapshot.value["followers"] as? [String: AnyObject] {
+//                currentArray = currentFollowers
+//
+//            }
+//            
+//
+//        })
+        
+        currentRef.observe(FIRDataEventType.value, with: { (snapshot) in
+            let postDict = snapshot.value as! [String: AnyObject]
+            print("womp")
+            print(postDict)
         })
         
         
-        
-        let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
-        currentArray.append(deviceUUID)
-        geofireRef.child(joinKey).child("followers").setValue(currentArray)
+//        let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
+//        currentArray.append(deviceUUID)
+//        geofireRef.child(joinKey).child("followers").setValue(currentArray)
 //        geofireRef.child(joinKey).child()
 
 //        geofireRef.child(uuid).child("leader").setValue(deviceUUID)
