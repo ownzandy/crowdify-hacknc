@@ -24,9 +24,15 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
     var lat : Double = 0.0
     var long : Double = 0.0
     var groupSet = Set<String>();
+    var myUid: String
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let myDefaults = UserDefaults.standard
+        self.myUid = myDefaults.string(forKey: "token")!
+        print("womp token")
+        print(self.myUid)
         
         geoFire = GeoFire(firebaseRef: rootRef)
         self.initLocationManager()
@@ -95,20 +101,16 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
     
     func createGroup() {
         print("Create group pressed")
-        let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
-        let uuid = UUID().uuidString
-//        geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: uuid)
-//        rootRef.child(uuid).child("leader").setValue(deviceUUID)
+        
+        geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: self.myUid)
+        rootRef.child(self.myUid).child("leader").setValue(self.myUid)
     }
 
     func refreshGroups() {
         print("Refresh group pressed")
         let center = CLLocation(latitude: lat, longitude: long)
         // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
-        var circleQuery = geoFire.query(at: center, withRadius: 0.6)
-
-//        print(circleQuery)
-        
+//        var circleQuery = geoFire.query(at: center, withRadius: 0.6)
         // Query location by region
         let span = MKCoordinateSpanMake(0.001, 0.001)
         let region = MKCoordinateRegionMake(center.coordinate, span)
@@ -146,18 +148,16 @@ extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSourc
                 print(snapshot.value)
                 if let followers = snapshot.value as? [String] {
                     var arr: [String] = followers
-                    let uid = UUID().uuidString
                     // check contains
-                    if !arr.contains(uid) {
-                        arr.append(UUID().uuidString)
+                    if !arr.contains(self.myUid) {
+                        arr.append(self.myUid)
                         currentRef.child("followers").setValue(arr) // add self to followers
                     }
                 }
             }
             else {
                 print("no followers")
-                let uuid = UUID().uuidString
-                currentRef.child("followers").setValue([uuid]) // add self to followers
+                currentRef.child("followers").setValue([self.myUid]) // add self to followers
             }
         })
     }
