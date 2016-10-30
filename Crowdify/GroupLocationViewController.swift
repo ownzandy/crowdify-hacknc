@@ -16,6 +16,7 @@ import UIKit
 
 class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
     
+    let myColorUtils = ColorUtils() 
     let tableView = UITableView()
     let locationManager = CLLocationManager()
     let geofireRef = FIRDatabase.database().reference()
@@ -33,26 +34,8 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
- 
-        let createGroupButton = UIButton()
-        view.addSubview(createGroupButton)
-        createGroupButton.backgroundColor = UIColor.green
-        createGroupButton.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.centerX.equalTo(view.center.x).offset(80)
-            make.centerY.equalTo(view.center.y).offset(50)
-        }
-        createGroupButton.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
         
-        let joinGroupButton = UIButton()
-        view.addSubview(joinGroupButton)
-        joinGroupButton.backgroundColor = UIColor.red
-        joinGroupButton.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.centerX.equalTo(view.center.x).offset(300)
-            make.centerY.equalTo(view.center.y).offset(50)
-        }
-        joinGroupButton.addTarget(self, action: #selector(joinGroup), for: .touchUpInside)
+        self.addButtons()
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -62,6 +45,39 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(GroupLocationViewCell.self, forCellReuseIdentifier: GroupLocationViewCell.reuseID)
+    }
+    
+    func addButtons() {
+        let cancel = UIButton()
+        let save = UIButton()
+        view.addSubview(cancel)
+        view.addSubview(save)
+        
+        cancel.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "d0ced5").cgColor
+        cancel.layer.borderWidth = 2.0
+        cancel.setTitle("Create Group", for: .normal)
+        cancel.setTitleColor(myColorUtils.hexStringToUIColor(hex: "d0ced5"), for: .normal)
+        cancel.layer.cornerRadius = 15.0
+        cancel.snp.makeConstraints { make in
+            make.width.equalTo(130.0)
+            make.height.equalTo(30.0)
+            make.centerX.equalTo(view.center.x).offset(80)
+            make.top.equalTo(view).offset(20)
+        }
+        cancel.addTarget(self, action: #selector(self.createGroup), for: .touchUpInside)
+        
+        save.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "dc3a79").cgColor
+        save.layer.borderWidth = 2.0
+        save.setTitle("Join Group", for: .normal)
+        save.setTitleColor(myColorUtils.hexStringToUIColor(hex: "dc3a79"), for: .normal)
+        save.layer.cornerRadius = 15.0
+        save.snp.makeConstraints { make in
+            make.width.equalTo(130.0)
+            make.height.equalTo(30.0)
+            make.centerX.equalTo(view.center.x).offset(300)
+            make.top.equalTo(view).offset(20)
+        }
+        save.addTarget(self, action: #selector(self.joinGroup), for: .touchUpInside)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
