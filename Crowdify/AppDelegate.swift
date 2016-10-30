@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
-        self.window?.rootViewController = GroupLocatorViewController()
+        self.window?.rootViewController = GroupLocationViewController()
         return true
     }
     

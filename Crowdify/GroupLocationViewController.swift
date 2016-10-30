@@ -14,13 +14,15 @@ import FirebaseDatabase
 import Firebase
 import UIKit
 
-class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
+class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
     
+    let tableView = UITableView()
     let locationManager = CLLocationManager()
     let geofireRef = FIRDatabase.database().reference()
     var geoFire: GeoFire!
     var lat : Double = 0.0
     var long : Double = 0.0
+    var groupSet = Set<String>();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,16 +34,37 @@ class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
         
+    
+        
         
         let createGroupButton = UIButton()
         view.addSubview(createGroupButton)
         createGroupButton.backgroundColor = UIColor.green
         createGroupButton.snp.makeConstraints { make in
             make.width.height.equalTo(100)
-            make.centerX.centerY.equalTo(view)
+            make.centerX.equalTo(view.center.x).offset(80)
+            make.centerY.equalTo(view.center.y).offset(50)
         }
-        createGroupButton.addTarget(self, action: #selector(joinGroup), for: .touchUpInside)
+        createGroupButton.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
         
+        let joinGroupButton = UIButton()
+        view.addSubview(joinGroupButton)
+        joinGroupButton.backgroundColor = UIColor.red
+        joinGroupButton.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.centerX.equalTo(view.center.x).offset(300)
+            make.centerY.equalTo(view.center.y).offset(50)
+        }
+        joinGroupButton.addTarget(self, action: #selector(joinGroup), for: .touchUpInside)
+        
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.left.right.bottom.equalTo(view)
+            make.top.equalTo(view.center.y).offset(250)
+        }
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(GroupLocationViewCell.self, forCellReuseIdentifier: GroupLocationViewCell.reuseID)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -54,15 +77,19 @@ class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
     
     func createGroup() {
         let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
+        let uuid = UUID().uuidString
         
-        geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: deviceUUID)
+        geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: uuid)
+        geofireRef.child(uuid).child("leader").setValue(deviceUUID)
+        
     }
     
     func joinGroup() {
+        print("heyheyhey")
         let center = CLLocation(latitude: lat, longitude: long)
         // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
         var circleQuery = geoFire.query(at: center, withRadius: 0.6)
-        
+
 //        print(circleQuery)
         
         // Query location by region
@@ -71,8 +98,29 @@ class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
         var regionQuery = geoFire.query(with: region)
         
         regionQuery?.observe(.keyEntered, with: { key, location in
+            self.groupSet.insert(key!)
             print("Key '\(key!)' entered the search area and is at location '\(location)'")
         })
+        self.tableView.reloadData()
+
+    }
+}
+
+extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("testing testing " + String(groupSet.count))
+        return groupSet.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: GroupLocationViewCell.reuseID, for: indexPath) as! GroupLocationViewCell
+        cell.groupLabel.text = groupSet[groupSet.index(groupSet.startIndex, offsetBy: indexPath.row)]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // row number = indexPath.row
+        
+    }
 }
