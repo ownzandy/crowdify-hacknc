@@ -81,7 +81,8 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         
         geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: uuid)
         geofireRef.child(uuid).child("leader").setValue(deviceUUID)
-        
+        let arr : [String] = []
+        geofireRef.child(uuid).child("followers").setValue(arr)
     }
     
     func joinGroup() {
@@ -120,7 +121,30 @@ extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // row number = indexPath.row
+        let cellNumber = indexPath.row
+        let joinKey = groupSet[groupSet.index(groupSet.startIndex, offsetBy: cellNumber)]
+        let currentArray : [String]
+        let currentRef = geofireRef.child(joinKey).child("followers")
         
+        currentRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            if !snapshot.exists() { return }
+            
+            if let currentFollowers = snapshot.value["followers"] as? [String: AnyObject] {
+                currentArray = currentFollowers
+
+            }
+            
+
+        })
+        
+        
+        
+        let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
+        currentArray.append(deviceUUID)
+        geofireRef.child(joinKey).child("followers").setValue(currentArray)
+//        geofireRef.child(joinKey).child()
+
+//        geofireRef.child(uuid).child("leader").setValue(deviceUUID)
     }
 }
