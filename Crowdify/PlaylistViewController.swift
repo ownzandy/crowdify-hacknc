@@ -48,19 +48,45 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
                 self.tableView.reloadData()
             }
         })
-
+        
+        self.navBar.barStyle = UIBarStyle.black
+        self.navBar.tintColor = UIColor.white
+        self.navBar.barTintColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        self.navBar.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        
         view.addSubview(navBar)
-        navBar.backgroundColor = UIColor.blue
         navBar.snp.makeConstraints { make in
             make.top.width.equalTo(view)
-            make.height.equalTo(50)
+            make.height.equalTo(20)
         }
+        
+        let titleView = UIView()
+        titleView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        view.addSubview(titleView)
+        titleView.snp.makeConstraints { make in
+            make.top.equalTo(navBar.snp.bottom)
+            make.width.equalTo(UIScreen.main.bounds.width)
+            make.height.equalTo(40)
+        }
+        
+        let navTitle = UILabel()
+        navTitle.text = "MY CROWD"
+        navTitle.textColor = UIColor(red:0.86, green:0.23, blue:0.47, alpha:1.0)
+        navTitle.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        
+        titleView.addSubview(navTitle)
+        navTitle.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(titleView.snp.top).offset(10)
+        }
+        
+        self.tableView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.left.right.equalTo(view)
-            make.bottom.equalTo(view).offset(-100)
-            make.top.equalTo(navBar.snp.bottom)
+            make.bottom.equalTo(view).offset(-125)
+            make.top.equalTo(navTitle.snp.bottom).offset(10)
         }
         
         tableView.delegate = self
@@ -72,15 +98,96 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
-        let playView = UIView()
-        playView.backgroundColor = UIColor.black
-        view.addSubview(playView)
-        playView.snp.makeConstraints { make in
-            make.height.equalTo(100)
-            make.bottom.left.right.equalTo(view)
+        searchController.searchBar.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        searchController.searchBar.barTintColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        
+        
+        let controlView = UIView()
+        controlView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        view.addSubview(controlView)
+        controlView.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom)
+            make.height.equalTo(50)
+            make.width.equalTo(UIScreen.main.bounds.width)
         }
+        
+        let playView = UIImageView()
+        let playString = "https://s14.postimg.org/hx7cold9t/play.png"
+        let playUrl = URL(string: playString)
+        playView.sd_setImage(with: playUrl)
+        
+        controlView.addSubview(playView)
+        playView.snp.makeConstraints { make in
+            make.height.equalTo(30)
+            make.width.equalTo(30)
+            make.top.equalTo(tableView.snp.bottom).offset(5)
+            make.centerX.equalTo(tableView.snp.centerX)
+        }
+        
+        let leftView = UIImageView()
+        let leftString = "https://s14.postimg.org/oia2bzx75/back.png"
+        let leftUrl = URL(string: leftString)
+        leftView.sd_setImage(with: leftUrl)
+        
+        controlView.addSubview(leftView)
+        leftView.snp.makeConstraints { make in
+            make.height.equalTo(20)
+            make.width.equalTo(30)
+            make.top.equalTo(tableView.snp.bottom).offset(10)
+            make.right.equalTo(playView.snp.left).offset(-15)
+        }
+        
+        let rightView = UIImageView()
+        let rightString = "https://s14.postimg.org/bnln1o2o1/forward.png"
+        let rightUrl = URL(string: rightString)
+        rightView.sd_setImage(with: rightUrl)
+        
+        controlView.addSubview(rightView)
+        rightView.snp.makeConstraints { make in
+            make.height.equalTo(20)
+            make.width.equalTo(30)
+            make.top.equalTo(tableView.snp.bottom).offset(10)
+            make.left.equalTo(playView.snp.right).offset(15)
+        }
+        
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(startPlaying))
         playView.addGestureRecognizer(gestureRecognizer)
+        
+//        let currentSongView = UIView()
+        
+//        self.view.addSubview(currentSongView)
+        
+//        currentSongView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+//        
+//        currentSongView.snp.makeConstraints { make in
+//            make.width.equalTo(UIScreen.main.bounds.width)
+//            make.height.equalTo(75)
+//        }
+        
+//        var currentTrack = playTracks[0]
+//        
+//        let albumArt = currentTrack.
+//        let songLabel = UILabel()
+//        let artistAlbumLabel = UILabel()
+//        
+//        currentSongView.addSubview(albumArt)
+//        currentSongView.addSubview(songLabel)
+//        currentSongView.addSubview(artistAlbumLabel)
+//        albumArt.snp.makeConstraints { make in
+//            make.left.equalTo(currentSongView).offset(10)
+//            make.top.equalTo(currentSongView).offset(5)
+//        }
+//        songLabel.snp.makeConstraints { make in
+//            make.left.equalTo(albumArt.snp.right).offset(10)
+//            make.top.equalTo(currentSongView).offset(15)
+//            make.width.equalTo(UIScreen.main.bounds.width - 90)
+//        }
+//        artistAlbumLabel.snp.makeConstraints { make in
+//            make.left.equalTo(albumArt.snp.right).offset(10)
+//            make.top.equalTo(songLabel.snp.bottom).offset(5)
+//            make.width.equalTo(UIScreen.main.bounds.width - 90)
+//        }
+        
     }
     
     func startPlaying() {
@@ -187,7 +294,7 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         var tracks: [Track]
         tracks = searchActive ? searchTracks : playTracks
         
-        cell.backgroundColor = UIColor .gray
+        cell.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
         var artist = ""
         let album = "• "
         
