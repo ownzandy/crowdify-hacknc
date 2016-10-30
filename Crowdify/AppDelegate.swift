@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
             try player?.start(withClientId: "1e6187fb28dd41308bf132bec985eb76")
             player?.login(withAccessToken: session.accessToken)
             UserDefaults.standard.set(session.accessToken, forKey: "token")
+            UserDefaults.standard.set(session.canonicalUsername, forKey: "username")
             self.window?.rootViewController = GroupLocationViewController()
         } catch {
             print("PLAYER COULD NOT BE STARTED")

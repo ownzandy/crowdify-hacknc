@@ -11,6 +11,7 @@ import SnapKit
 
 class GroupLocationViewCell: UITableViewCell {
     
+    let myColorUtils = ColorUtils()
     static let reuseID = "GroupLocationViewCell"
     var groupLabel = UILabel()
     private let leftRightSpacing: CGFloat = 5
@@ -26,9 +27,11 @@ class GroupLocationViewCell: UITableViewCell {
     
     func configure() {
         addSubview(groupLabel)
+        self.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
+        groupLabel.textColor = myColorUtils.hexStringToUIColor(hex: "d0ced5")
         groupLabel.snp.makeConstraints { make in
             make.left.equalTo(leftRightSpacing)
-            make.top.equalTo(self)
+            make.centerY.equalTo(self)
         }
     }
     

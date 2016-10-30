@@ -30,8 +30,9 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         let myDefaults = UserDefaults.standard
-        self.myUid = myDefaults.string(forKey: "token")!
-        print("womp token " + self.myUid)
+        self.myUid = myDefaults.string(forKey: "username")!
+        print("womp " + self.myUid)
+        self.view.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
         
         geoFire = GeoFire(firebaseRef: rootRef)
         self.initLocationManager()
@@ -52,10 +53,10 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
             make.left.right.bottom.equalTo(view)
             make.top.equalTo(view.center.y).offset(250)
         }
+        tableView.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(GroupLocationViewCell.self, forCellReuseIdentifier: GroupLocationViewCell.reuseID)
-
     }
     
     func addButtons() {
@@ -72,7 +73,7 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         cancel.snp.makeConstraints { make in
             make.width.equalTo(130.0)
             make.height.equalTo(30.0)
-            make.centerX.equalTo(view.center.x).offset(80)
+            make.left.equalTo(view).offset(30)
             make.top.equalTo(view).offset(20)
         }
         cancel.addTarget(self, action: #selector(self.createGroup), for: .touchUpInside)
@@ -85,7 +86,7 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         refresh.snp.makeConstraints { make in
             make.width.equalTo(130.0)
             make.height.equalTo(30.0)
-            make.centerX.equalTo(view.center.x).offset(300)
+            make.right.equalTo(view).offset(-30)
             make.top.equalTo(view).offset(20)
         }
         refresh.addTarget(self, action: #selector(self.refreshGroups), for: .touchUpInside)
@@ -172,6 +173,6 @@ extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSourc
             }
         })
         
-        // TODO: transition to PlaylistVC afterwards 
+        // TODO: transition to PlaylistVC afterwards
     }
 }
