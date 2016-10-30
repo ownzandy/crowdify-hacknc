@@ -32,11 +32,13 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         let myDefaults = UserDefaults.standard
         self.myUid = myDefaults.string(forKey: "username")!
         print("womp " + self.myUid)
+        print(UIFont.familyNames)
         self.view.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
         
         geoFire = GeoFire(firebaseRef: rootRef)
         self.initLocationManager()
         self.addButtons()
+        self.addTitle()
         self.addTableView()
     }
     
@@ -47,12 +49,25 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
     }
     
+    func addTitle() {
+        let title = UILabel(frame: CGRect.zero)
+        view.addSubview(title)
+        title.text = "FIND YOUR CROWD"
+        title.font = UIFont(name: "Avenir Next Condensed", size: 28.0)
+        title.textColor = myColorUtils.hexStringToUIColor(hex: "dc3a79")
+        title.snp.makeConstraints { make in
+            make.top.equalTo(view).offset(20)
+            make.centerX.equalTo(view)
+        }
+    }
+    
     func addTableView() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(view)
             make.top.equalTo(view.center.y).offset(250)
         }
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
         tableView.delegate = self
         tableView.dataSource = self
@@ -67,27 +82,27 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         
         cancel.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "d0ced5").cgColor
         cancel.layer.borderWidth = 2.0
-        cancel.setTitle("Create Group", for: .normal)
+        cancel.setTitle("New Crowd", for: .normal)
         cancel.setTitleColor(myColorUtils.hexStringToUIColor(hex: "d0ced5"), for: .normal)
         cancel.layer.cornerRadius = 15.0
         cancel.snp.makeConstraints { make in
-            make.width.equalTo(130.0)
+            make.width.equalTo(120.0)
             make.height.equalTo(30.0)
             make.left.equalTo(view).offset(30)
-            make.top.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(120)
         }
         cancel.addTarget(self, action: #selector(self.createGroup), for: .touchUpInside)
         
-        refresh.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "dc3a79").cgColor
+        refresh.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "d0ced5").cgColor
         refresh.layer.borderWidth = 2.0
         refresh.setTitle("Refresh", for: .normal)
-        refresh.setTitleColor(myColorUtils.hexStringToUIColor(hex: "dc3a79"), for: .normal)
+        refresh.setTitleColor(myColorUtils.hexStringToUIColor(hex: "d0ced5"), for: .normal)
         refresh.layer.cornerRadius = 15.0
         refresh.snp.makeConstraints { make in
-            make.width.equalTo(130.0)
+            make.width.equalTo(120.0)
             make.height.equalTo(30.0)
             make.right.equalTo(view).offset(-30)
-            make.top.equalTo(view).offset(20)
+            make.top.equalTo(view).offset(120)
         }
         refresh.addTarget(self, action: #selector(self.refreshGroups), for: .touchUpInside)
     }

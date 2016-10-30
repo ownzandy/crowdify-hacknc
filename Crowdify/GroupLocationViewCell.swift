@@ -30,7 +30,7 @@ class GroupLocationViewCell: UITableViewCell {
         self.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
         groupLabel.textColor = myColorUtils.hexStringToUIColor(hex: "d0ced5")
         groupLabel.snp.makeConstraints { make in
-            make.left.equalTo(leftRightSpacing)
+            make.left.equalTo(self).offset(10)
             make.centerY.equalTo(self)
         }
     }
