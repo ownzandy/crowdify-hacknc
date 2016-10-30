@@ -19,9 +19,7 @@ class EditorTableViewCell: UITableViewCell {
     let startLabel = UILabel(frame: CGRect.zero)
     let endLabel = UILabel(frame: CGRect.zero)
     var deviceName = UILabel()
-    var deviceArt = UIImageView()
     var songDurationMS = 400000 // pass in
-    
     
     var albumArt = UIImageView()
     var songLabel = UILabel()
@@ -40,6 +38,7 @@ class EditorTableViewCell: UITableViewCell {
     
     func configure() {
         addSubview(rangeSlider)
+        addSubview(albumArt)
         //addSubview(startLabel)
         //addSubview(endLabel)
         //addSubview(deviceName)
@@ -48,13 +47,30 @@ class EditorTableViewCell: UITableViewCell {
         rangeSlider.setMinValue(0.0, maxValue: 1.0)
         rangeSlider.setLeftValue(0.0, rightValue: 1.0)
         rangeSlider.minimumDistance = 0.0
+        let temp = rangeSlider.leftThumbImage
+        let newWidth = (temp?.size.width)! / 2
+        let newHeight = (temp?.size.height)! / 2
+        let size = CGSize(width: newWidth, height: newHeight)
+
+        /*UIGraphicsBeginImageContext(size)
+        temp?.draw(in: CGRect(x: rangeSlider.leftThumbView.center.x, y: rangeSlider.leftThumbView.center.y, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        rangeSlider.leftThumbImage = newImage
+        */
         let margin: CGFloat = 10.0
         rangeSlider.snp.makeConstraints { make in
             make.width.equalTo(self.bounds.width - 2.0 * margin)
             make.height.equalTo(51.0)
-            make.centerX.equalTo(self.center.x+50) // TODO: find dynamically
+            make.centerX.equalTo(self.center.x+30) // TODO: find dynamically
             make.centerY.equalTo(self.center.y)
         }
+        
+        albumArt.snp.makeConstraints { make in
+            make.left.equalTo(self).offset(leftRightSpacing)
+            make.top.equalTo(self)
+        }
+        
         /*
         startLabel.text = self.percentToTime(percentage: rangeSlider.leftValue, durationMS: self.songDurationMS)
         endLabel.text = self.percentToTime(percentage: rangeSlider.rightValue, durationMS: self.songDurationMS)

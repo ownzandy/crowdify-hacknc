@@ -36,9 +36,52 @@ class EditorViewController: UIViewController {
         self.addSongTitle(text: self.songTitle)
         self.addSongArtists(artists: self.songArtists)
         self.addTableView()
+        self.addButtons()
     }
     
-    func addTableView(){
+    func addButtons() {
+        let cancel = UIButton()
+        let save = UIButton()
+        view.addSubview(cancel)
+        view.addSubview(save)
+        let myColorUtils = ColorUtils()
+        
+        cancel.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "d0ced5").cgColor
+        cancel.layer.borderWidth = 2.0
+        cancel.setTitle("Cancel", for: .normal)
+        cancel.setTitleColor(myColorUtils.hexStringToUIColor(hex: "d0ced5"), for: .normal)
+        cancel.layer.cornerRadius = 15.0
+        cancel.snp.makeConstraints { make in
+            make.width.equalTo(100.0)
+            make.height.equalTo(30.0)
+            make.centerX.equalTo(view.center.x).offset(80)
+            make.bottom.equalTo(view).offset(-20)
+        }
+        cancel.addTarget(self, action: #selector(self.cancelButtonPressed), for: .touchUpInside)
+        
+        save.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "dc3a79").cgColor
+        save.layer.borderWidth = 2.0
+        save.setTitle("Save", for: .normal)
+        save.setTitleColor(myColorUtils.hexStringToUIColor(hex: "dc3a79"), for: .normal)
+        save.layer.cornerRadius = 15.0
+        save.snp.makeConstraints { make in
+            make.width.equalTo(100.0)
+            make.height.equalTo(30.0)
+            make.centerX.equalTo(view.center.x).offset(300)
+            make.bottom.equalTo(view).offset(-20)
+        }
+        save.addTarget(self, action: #selector(self.saveButtonPressed), for: .touchUpInside)
+    }
+    
+    func saveButtonPressed() {
+        print("Save button pressed!")
+    }
+    
+    func cancelButtonPressed() {
+        print("Cancel button pressed!")
+    }
+    
+    func addTableView() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(view)
@@ -91,29 +134,6 @@ class EditorViewController: UIViewController {
         }
         view.addSubview(imageView)
     }
-    
-    func percentToTime(percentage: CGFloat, durationMS: Int) -> String {
-        let totalMS = Int(Float(percentage) * Float(durationMS))
-        let timeSec = totalMS / 1000
-        let mins = timeSec / 60
-        let secs = timeSec % 60
-        let retval = String(mins) + ":" + ((secs<10) ? "0" : "") + String(secs)
-        return retval
-    }
-    
-    /*
-    override func viewDidLayoutSubviews() {
-        let margin: CGFloat = 20.0
-        let width = view.bounds.width - 2.0 * margin
-        rangeSlider.frame = CGRect(x: margin, y: view.center.y,
-                                   width: width, height: 31.0)
-    }*/
-    
-    func rangeSliderValueDidChange(_ slider: MARKRangeSlider) {
-        startLabel.text = self.percentToTime(percentage: slider.leftValue, durationMS: self.songDurationMS)
-        endLabel.text = self.percentToTime(percentage: slider.rightValue, durationMS: self.songDurationMS)
-    }
-    
 }
 
 extension EditorViewController: UITableViewDelegate, UITableViewDataSource {
@@ -123,20 +143,7 @@ extension EditorViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: EditorTableViewCell.reuseID, for: indexPath) as! EditorTableViewCell
-        
-        //var artist = ""
-        
-        //let url = searchTracks[indexPath.item].coverArt
-        //cell.albumArt.sd_setImage(with: url)
-        
-        //cell.songLabel.text = searchTracks[indexPath.item].name
-        //for name in searchTracks[indexPath.item].artists {
-        //    artist += name
-        //    artist += " "
-        //}
-        //cell.artistLabel.text = artist
-        //cell.albumLabel.text = searchTracks[indexPath.item].albumName
+        let cell = tableView.dequeueReusableCell(withIdentifier: EditorTableViewCell.reuseID, for: indexPath) as! EditorTableViewCell        
         return cell
     }
 }
