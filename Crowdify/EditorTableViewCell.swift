@@ -40,13 +40,9 @@ class EditorTableViewCell: UITableViewCell {
     
     func configure() {
         addSubview(rangeSlider)
-        addSubview(startLabel)
-        addSubview(endLabel)
+        //addSubview(startLabel)
+        //addSubview(endLabel)
         //addSubview(deviceName)
-        //albumArt.snp.makeConstraints { make in
-        //    make.left.equalTo(self).offset(leftRightSpacing)
-        //    make.top.equalTo(self)
-        //}
         
         rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
         rangeSlider.setMinValue(0.0, maxValue: 1.0)
@@ -59,21 +55,24 @@ class EditorTableViewCell: UITableViewCell {
             make.centerX.equalTo(self.center.x+50) // TODO: find dynamically
             make.centerY.equalTo(self.center.y)
         }
-
-        
-        
         /*
-        songLabel.snp.makeConstraints { make in
-            make.left.equalTo(albumArt.snp.right).offset(leftRightSpacing)
-            make.top.equalTo(self)
+        startLabel.text = self.percentToTime(percentage: rangeSlider.leftValue, durationMS: self.songDurationMS)
+        endLabel.text = self.percentToTime(percentage: rangeSlider.rightValue, durationMS: self.songDurationMS)
+        startLabel.font = UIFont(name:"HelveticaNeue", size: 12.0)
+        startLabel.textColor = UIColor.lightGray
+        endLabel.font = UIFont(name:"HelveticaNeue", size: 12.0)
+        endLabel.textColor = UIColor.lightGray
+
+        startLabel.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.centerX.equalTo(rangeSlider.leftThumbView).offset(30)
+            make.centerY.equalTo(rangeSlider).offset(-10)
         }
-        artistLabel.snp.makeConstraints { make in
-            make.left.equalTo(albumArt.snp.right).offset(leftRightSpacing)
-            make.bottom.equalTo(self)
-        }
-        albumLabel.snp.makeConstraints { make in
-            make.left.equalTo(artistLabel.snp.right)
-            make.bottom.equalTo(self)
+        
+        endLabel.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.centerX.equalTo(rangeSlider.rightThumbView).offset(30)
+            make.centerY.equalTo(rangeSlider).offset(25)
         }*/
     }
     

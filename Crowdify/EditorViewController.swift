@@ -35,54 +35,21 @@ class EditorViewController: UIViewController {
         self.addSongImage(imageName: self.songImage)
         self.addSongTitle(text: self.songTitle)
         self.addSongArtists(artists: self.songArtists)
-        
-        // Config rangeSlider
-        /*
-        rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
-        rangeSlider.setMinValue(0.0, maxValue: 1.0)
-        rangeSlider.setLeftValue(0.2, rightValue: 0.7)
-        rangeSlider.minimumDistance = 0.0
-        let margin: CGFloat = 20.0
-        //let width = view.bounds.width - 2.0 * margin
-        //rangeSlider.frame = CGRect(x: margin, y: view.center.y,
-        //                           width: width, height: 51.0)
-        view.addSubview(self.rangeSlider)
-
-        rangeSlider.snp.makeConstraints { make in
-            make.width.equalTo(view.bounds.width - 2.0 * margin)
-            make.height.equalTo(51.0)
-            make.centerX.equalTo(view.center.x)
-            make.centerY.equalTo(view.center.y)
-        }
+        self.addTableView()
+    }
     
-        startLabel.text = self.percentToTime(percentage: rangeSlider.leftValue, durationMS: self.songDurationMS)
-        endLabel.text = self.percentToTime(percentage: rangeSlider.rightValue, durationMS: self.songDurationMS)
-        view.addSubview(startLabel)
-        view.addSubview(endLabel)
-        
-        startLabel.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.centerX.equalTo(rangeSlider.leftThumbView).offset(30)
-            make.centerY.equalTo(rangeSlider).offset(-30)
-        }
-        
-        endLabel.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.centerX.equalTo(rangeSlider.rightThumbView).offset(30)
-            make.centerY.equalTo(rangeSlider).offset(30)
-        }*/
-        
+    func addTableView(){
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(view)
             make.top.equalTo(view.center.y).offset(250)
         }
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.allowsSelection = false
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(EditorTableViewCell.self, forCellReuseIdentifier: EditorTableViewCell.reuseID)
     }
-    
     
     func addSongArtists(artists: [String]) {
         let artist = UILabel(frame: CGRect.zero)
