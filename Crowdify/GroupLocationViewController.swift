@@ -19,7 +19,7 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
     let myColorUtils = ColorUtils() 
     let tableView = UITableView()
     let locationManager = CLLocationManager()
-    let geofireRef = FIRDatabase.database().reference()
+    let rootRef = FIRDatabase.database().reference()
     var geoFire: GeoFire!
     var lat : Double = 0.0
     var long : Double = 0.0
@@ -28,15 +28,17 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        geoFire = GeoFire(firebaseRef: geofireRef)
-        
+        geoFire = GeoFire(firebaseRef: rootRef)
+        self.initLocationManager()
+        self.addButtons()
+        self.addTableView()
+    }
+    
+    func initLocationManager() {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.startUpdatingLocation()
-        
-        self.addButtons()
-
     }
     
     func addTableView() {
@@ -89,18 +91,14 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
 
         lat = current!.coordinate.latitude
         long = current!.coordinate.longitude
-        
     }
     
     func createGroup() {
         print("Create group pressed")
         let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
         let uuid = UUID().uuidString
-        
-        geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: uuid)
-        geofireRef.child(uuid).child("leader").setValue(deviceUUID)
-//        let arr : [String] = []
-//        geofireRef.child(uuid).child("followers").setValue(arr)
+//        geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: uuid)
+//        rootRef.child(uuid).child("leader").setValue(deviceUUID)
     }
 
     func refreshGroups() {
@@ -139,8 +137,7 @@ extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cellNumber = indexPath.row
         let joinKey = groupSet[groupSet.index(groupSet.startIndex, offsetBy: cellNumber)]
-//        let currentArray : [String]
-        let currentRef = geofireRef.child(joinKey)
+        let currentRef = rootRef.child(joinKey)
         
         currentRef.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             
