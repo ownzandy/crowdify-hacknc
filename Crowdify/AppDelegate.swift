@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = LoginViewController()
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
     

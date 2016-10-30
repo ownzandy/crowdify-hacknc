@@ -54,23 +54,54 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
                 self.tableView.reloadData()
             }
         })
-
+        
+        self.navBar.barStyle = UIBarStyle.black
+        self.navBar.barTintColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        self.navBar.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        
         view.addSubview(navBar)
-        navBar.backgroundColor = UIColor.blue
         navBar.snp.makeConstraints { make in
             make.top.width.equalTo(view)
-            make.height.equalTo(50)
+            make.height.equalTo(20)
         }
         
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.left.right.equalTo(view)
-            make.bottom.equalTo(view).offset(-100)
+        let titleView = UIView()
+        titleView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        view.addSubview(titleView)
+        titleView.snp.makeConstraints { make in
             make.top.equalTo(navBar.snp.bottom)
+            make.width.equalTo(UIScreen.main.bounds.width)
+            make.height.equalTo(40)
         }
+        
+        let navTitle = UILabel()
+        navTitle.text = "My Crowd"
+        
+        (UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])).tintColor = UIColor(red:0.86, green:0.23, blue:0.47, alpha:1.0)
+        
+        navTitle.textColor = UIColor(red:0.86, green:0.23, blue:0.47, alpha:1.0)
+        navTitle.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        
+        titleView.addSubview(navTitle)
+        navTitle.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(titleView.snp.top).offset(10)
+        }
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleSync))
+        navTitle.addGestureRecognizer(gestureRecognizer)
+        
+        self.tableView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        
+        view.addSubview(tableView)
+        
+        let backView = UIView(frame: self.tableView.bounds)
+        backView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        self.tableView.backgroundView = backView
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
         tableView.register(PlaylistTableViewCell.self, forCellReuseIdentifier: PlaylistTableViewCell.reuseID)
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -78,32 +109,86 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
-        let playView = UIView()
-        playView.backgroundColor = UIColor.black
-        view.addSubview(playView)
-        playView.snp.makeConstraints { make in
-            make.height.equalTo(100)
-            make.bottom.left.right.equalTo(view)
-        }
-        let playerRecognizer = UITapGestureRecognizer(target: self, action: #selector(startPlaying))
-        playView.addGestureRecognizer(playerRecognizer)
+        searchController.searchBar.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        searchController.searchBar.barTintColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
         
-        let syncView = UIView()
-        syncView.backgroundColor = UIColor.blue
-        view.addSubview(syncView)
-        syncView.snp.makeConstraints { make in
-            make.height.equalTo(100)
-            make.left.right.equalTo(view)
-            make.bottom.equalTo(view).offset(-100)
+        
+        let controlView = UIView()
+        controlView.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
+        view.addSubview(controlView)
+        controlView.snp.makeConstraints { make in
+            make.bottom.equalTo(view)
+            make.height.equalTo(75)
+            make.width.equalTo(UIScreen.main.bounds.width)
         }
-        let syncRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleSync))
-        syncView.addGestureRecognizer(syncRecognizer)
+        
+        tableView.snp.makeConstraints { make in
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(controlView.snp.top)
+            make.top.equalTo(navTitle.snp.bottom).offset(8)
+        }
+        
+        let playView = UIButton()
+        let playString = "https://s14.postimg.org/hx7cold9t/play.png"
+        let playUrl = URL(string: playString)
+        let playData = try? Data(contentsOf: playUrl!)
+        playView.setBackgroundImage(UIImage(data: playData!), for: .normal)
+        
+        controlView.addSubview(playView)
+        playView.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.width.equalTo(50)
+            make.bottom.equalTo(view).offset(-15)
+            make.centerX.equalTo(tableView.snp.centerX)
+        }
+        
+        let leftView = UIButton()
+        let leftString = "https://s14.postimg.org/oia2bzx75/back.png"
+        let leftUrl = URL(string: leftString)
+        let leftData = try? Data(contentsOf: leftUrl!)
+        leftView.setBackgroundImage(UIImage(data: leftData!), for: .normal)
+        
+        controlView.addSubview(leftView)
+        leftView.snp.makeConstraints { make in
+            make.height.equalTo(30)
+            make.width.equalTo(40)
+            make.centerY.equalTo(controlView).offset(-3)
+            make.right.equalTo(playView.snp.left).offset(-15)
+        }
+        
+        let rightView = UIButton()
+        let rightString = "https://s14.postimg.org/bnln1o2o1/forward.png"
+        let rightUrl = URL(string: rightString)
+        let rightData = try? Data(contentsOf: rightUrl!)
+        rightView.setBackgroundImage(UIImage(data: rightData!), for: .normal)
+        
+        controlView.addSubview(rightView)
+        rightView.snp.makeConstraints { make in
+            make.height.equalTo(30)
+            make.width.equalTo(40)
+            make.centerY.equalTo(controlView).offset(-3)
+            make.left.equalTo(playView.snp.right).offset(15)
+        }
+        
+        playView.addTarget(self, action: #selector(startPlaying), for: .touchUpInside)
+        leftView.addTarget(self, action: #selector(goToBeginning), for: .touchUpInside)
+        rightView.addTarget(self, action: #selector(nextSong), for: .touchUpInside)
+        
+        let controlRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleSync))
+        controlView.addGestureRecognizer(controlRecognizer)
         
         syncListener()
-
+    }
+    
+    func goToBeginning() {
+        let songRef = self.ref.child("song")
+        songRef.updateChildValues(["offset": 0])
+        toggleSync()
+        master = true
     }
     
     func toggleSync() {
+        master = false
         let syncToggleRef = self.ref.child("sync")
         syncToggleRef.observeSingleEvent(of: FIRDataEventType.value, with: { result in
             syncToggleRef.setValue(["sync": ProcessInfo.processInfo.globallyUniqueString])
@@ -115,7 +200,6 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
         let syncToggleRef = self.ref.child("sync")
         syncToggleRef.observe(FIRDataEventType.value, with: { result in
             self.startPlaying()
-
         })
     }
     
@@ -194,6 +278,10 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
 extension PlaylistViewController: SPTAudioStreamingPlaybackDelegate {
     
     func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStopPlayingTrack trackUri: String!) {
+        nextSong()
+    }
+    
+    func nextSong() {
         self.ref.child("crowds").child(crowdID).child("songs").child((playTracks.first?.firebaseID)!).removeValue()
         playTracks.remove(at: 0)
         tableView.reloadData()
@@ -201,6 +289,8 @@ extension PlaylistViewController: SPTAudioStreamingPlaybackDelegate {
         if let trackUri = playTracks.first?.uri.absoluteString {
             songRef.setValue(["currentSong": trackUri])
         }
+        toggleSync()
+        master = true
         startPlaying()
     }
     
@@ -239,7 +329,7 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         var tracks: [Track]
         tracks = searchActive ? searchTracks : playTracks
         
-        cell.backgroundColor = UIColor .gray
+        cell.backgroundColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
         var artist = ""
         let album = "• "
         
@@ -262,12 +352,19 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         if searchActive {
             let crowdRef = self.ref.child("crowds").child(crowdID).child("songs")
             let newSong = crowdRef.childByAutoId()
             let track = searchTracks[indexPath.row]
             searchController.dismiss(animated: true, completion: nil)
-            newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName, "index": (playTracks.last?.index)! + 1])
+            if playTracks.count > 0 {
+                newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName, "index": (playTracks.last?.index)! + 1])
+            } else {
+                newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName, "index": 1])
+            }
         }
     }
 }
+
+

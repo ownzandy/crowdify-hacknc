@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F64B404075D33F5B46AA94A /* Pods_Crowdify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A510B5E0E5D7AB236C4EE045 /* Pods_Crowdify.framework */; };
 		63320C941DC51C4A00065882 /* PlaylistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */; };
+		6E34B00C1DC60AF90040DF70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E34B00B1DC60AF90040DF70 /* LaunchScreen.storyboard */; };
 		6E7C7CAA1DC4540200E92DE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */; };
 		6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */; };
 		6E7C7CBF1DC4540200E92DE8 /* CrowdifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C7CBE1DC4540200E92DE8 /* CrowdifyTests.swift */; };
@@ -19,7 +20,6 @@
 		6E83C1591DC456080056E8DC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E83C1581DC456080056E8DC /* AVFoundation.framework */; };
 		6E83C15B1DC456130056E8DC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E83C15A1DC456130056E8DC /* SystemConfiguration.framework */; };
 		6E83C1611DC459590056E8DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C1601DC459590056E8DC /* LoginViewController.swift */; };
-		6E83C1651DC469BD0056E8DC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */; };
 		6E83C1671DC4F8F20056E8DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6E83C1661DC4F8F20056E8DC /* GoogleService-Info.plist */; };
 		6E83C1691DC508F80056E8DC /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */; };
 		6E83C16B1DC5196C0056E8DC /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E83C16A1DC5196C0056E8DC /* Track.swift */; };
@@ -49,6 +49,7 @@
 		4CB2846A2ED44C06A3A30BBD /* Pods-Crowdify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Crowdify.release.xcconfig"; path = "Pods/Target Support Files/Pods-Crowdify/Pods-Crowdify.release.xcconfig"; sourceTree = "<group>"; };
 		5A05859409D6E6A98C5D4F9C /* Pods_CrowdifyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrowdifyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistTableViewCell.swift; sourceTree = "<group>"; };
+		6E34B00B1DC60AF90040DF70 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E7C7CA61DC4540200E92DE8 /* Crowdify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crowdify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6E7C7CB01DC4540200E92DE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,7 +67,6 @@
 		6E83C15A1DC456130056E8DC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		6E83C15C1DC4573A0056E8DC /* Crowdify-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Crowdify-Bridging-Header.h"; sourceTree = "<group>"; };
 		6E83C1601DC459590056E8DC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6E83C1661DC4F8F20056E8DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		6E83C16A1DC5196C0056E8DC /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 				6E83C16C1DC522ED0056E8DC /* Crowdify.entitlements */,
 				6E83C1661DC4F8F20056E8DC /* GoogleService-Info.plist */,
 				6E7C7CA91DC4540200E92DE8 /* AppDelegate.swift */,
-				6E83C1641DC469BD0056E8DC /* Launch Screen.storyboard */,
+				6E34B00B1DC60AF90040DF70 /* LaunchScreen.storyboard */,
 				6E83C1681DC508F80056E8DC /* PlaylistViewController.swift */,
 				63320C931DC51C4A00065882 /* PlaylistTableViewCell.swift */,
 				6E83C1601DC459590056E8DC /* LoginViewController.swift */,
@@ -251,6 +251,7 @@
 				6E7C7CC21DC4540200E92DE8 /* Frameworks */,
 				6E7C7CC31DC4540200E92DE8 /* Resources */,
 				09388B5E003AB948BB467601 /* [CP] Copy Pods Resources */,
+				C7007B5CC4DEDBAED1B7843D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,7 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E83C1651DC469BD0056E8DC /* Launch Screen.storyboard in Resources */,
+				6E34B00C1DC60AF90040DF70 /* LaunchScreen.storyboard in Resources */,
 				6E7C7CB11DC4540200E92DE8 /* Assets.xcassets in Resources */,
 				6E83C1671DC4F8F20056E8DC /* GoogleService-Info.plist in Resources */,
 			);
@@ -433,6 +434,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyTests/Pods-CrowdifyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C7007B5CC4DEDBAED1B7843D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrowdifyUITests/Pods-CrowdifyUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C925F936E39E3B8647BA7CC8 /* [CP] Embed Pods Frameworks */ = {

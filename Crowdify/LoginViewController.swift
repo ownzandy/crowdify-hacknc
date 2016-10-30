@@ -13,13 +13,26 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button = UIButton()
-        view.addSubview(button)
-        button.backgroundColor = UIColor.blue
-        button.snp.makeConstraints { make in
-            make.width.height.equalTo(100)
-            make.centerX.centerY.equalTo(view)
+        let loginScreen = UIImageView()
+        view.addSubview(loginScreen)
+        let loginString = "https://s13.postimg.org/55srmfeiv/home.png"
+        let loginUrl = URL(string: loginString)
+        loginScreen.sd_setImage(with: loginUrl)
+        loginScreen.snp.makeConstraints { make in
+            make.width.height.equalTo(view)
         }
+        
+        let button = UIButton()
+        
+        view.addSubview(button)
+        
+        button.snp.makeConstraints { make in
+            make.width.equalTo(250)
+            make.height.equalTo(60)
+            make.centerX.equalTo(view)
+            make.bottom.equalTo(loginScreen.snp.bottom).offset(-115)
+        }
+        
         button.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
     
