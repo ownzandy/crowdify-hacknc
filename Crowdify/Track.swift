@@ -14,4 +14,6 @@ struct Track {
     let artists: [String]
     let coverArt: URL
     let albumName: String
+    let firebaseID: String
+    let index: Int
 }

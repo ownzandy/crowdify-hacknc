@@ -25,11 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SPTAudioStreamingDelegate
         self.window?.backgroundColor = UIColor.white
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = LoginViewController()
+        UIApplication.shared.statusBarStyle = .lightContent
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        print(SPTAuth.defaultInstance().canHandle(url))
         if SPTAuth.defaultInstance().canHandle(url) {
             SPTAuth.defaultInstance().handleAuthCallback(withTriggeredAuthURL: url, callback: { error, session -> Void in
                 if error != nil {
