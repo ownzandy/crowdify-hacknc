@@ -16,10 +16,18 @@ let endLabel = UILabel(frame: CGRect.zero)//init(origin: CGPoint.init(x: 20, y:2
 
 class EditorViewController: UIViewController {
     let rangeSlider = MARKRangeSlider(frame: CGRect.zero)
+    
+    // Placeholder values
+    let deviceIDs = ["deviceZero", "deviceOne", "deviceTwo", "deviceThree", "deviceFour"]
+    
     var songDurationMS = 400000 // TODO: take in as argument
     let songImage = "cat.jpg"
     let songTitle = "Shelter"
     let songArtists = ["Porter Robinson", "Madeon"]
+    
+    // Table stuff
+    let tableView = UITableView()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +37,7 @@ class EditorViewController: UIViewController {
         self.addSongArtists(artists: self.songArtists)
         
         // Config rangeSlider
+        /*
         rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
         rangeSlider.setMinValue(0.0, maxValue: 1.0)
         rangeSlider.setLeftValue(0.2, rightValue: 0.7)
@@ -61,7 +70,17 @@ class EditorViewController: UIViewController {
             make.width.height.equalTo(100)
             make.centerX.equalTo(rangeSlider.rightThumbView).offset(30)
             make.centerY.equalTo(rangeSlider).offset(30)
+        }*/
+        
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.left.right.bottom.equalTo(view)
+            make.top.equalTo(view.center.y).offset(250)
         }
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(EditorTableViewCell.self, forCellReuseIdentifier: EditorTableViewCell.reuseID)
     }
     
     
@@ -126,5 +145,31 @@ class EditorViewController: UIViewController {
     func rangeSliderValueDidChange(_ slider: MARKRangeSlider) {
         startLabel.text = self.percentToTime(percentage: slider.leftValue, durationMS: self.songDurationMS)
         endLabel.text = self.percentToTime(percentage: slider.rightValue, durationMS: self.songDurationMS)
+    }
+    
+}
+
+extension EditorViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return deviceIDs.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: EditorTableViewCell.reuseID, for: indexPath) as! EditorTableViewCell
+        
+        //var artist = ""
+        
+        //let url = searchTracks[indexPath.item].coverArt
+        //cell.albumArt.sd_setImage(with: url)
+        
+        //cell.songLabel.text = searchTracks[indexPath.item].name
+        //for name in searchTracks[indexPath.item].artists {
+        //    artist += name
+        //    artist += " "
+        //}
+        //cell.artistLabel.text = artist
+        //cell.albumLabel.text = searchTracks[indexPath.item].albumName
+        return cell
     }
 }
