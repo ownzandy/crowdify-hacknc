@@ -16,4 +16,8 @@ struct Interval {
         self.start = start
         self.end = end
     }
+    
+    func toString() -> String {
+        return String(self.start)+","+String(self.end)
+    }
 }

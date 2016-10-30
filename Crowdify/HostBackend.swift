@@ -50,8 +50,8 @@ class HostBackend {
         print("")
         print("")
         for deviceID in map.keys {
-            let s = "["+deviceID//+": "+map[deviceID]+"]"
-            print(s)
+            print("id="+deviceID)
+            print("interval="+(map[deviceID]?.toString())!)
         }
         print("")
     }
