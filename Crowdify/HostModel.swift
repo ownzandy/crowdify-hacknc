@@ -14,24 +14,25 @@ struct HostModel {
     var groupID: String
     var deviceID: String
     var intervalStr: String
-    var intervalList = [Interval]()
+    //var intervalList = [Interval]()
     
     init(snapshot: FIRDataSnapshot){ // Note: you can print any of these values for debugging purposes
-        groupID = snapshot.value!["groupID"] as! String
-        deviceID = snapshot.value!["deviceID"] as! String
-        intervalStr = snapshot.value!["intervalStr"] as! String
-        let intervals = intervalStr.split{$0 == " "}
+        groupID = (snapshot.value as? NSDictionary)?["groupID"] as? String ?? ""
+        deviceID = (snapshot.value as? NSDictionary)?["deviceID"] as? String ?? ""
+        intervalStr = (snapshot.value as? NSDictionary)?["intervalStr"] as? String ?? ""
+        //intervalStr = snapshot.value!["intervalStr"] as! String
+        let intervals = intervalStr.components(separatedBy: " ")
         for interval in intervals {
-            let vals = interval.split{$0 == "-"}
-            let start = vals[0]
-            let end = vals[1]
-            intervalList.append(Interval())
+            let vals = interval.components(separatedBy: " ")
+            let start = (vals[0] as NSString).doubleValue
+            let end = (vals[1] as NSString).doubleValue
+            //intervalList.append(Interval(start: start, end: end))
         }
     }
     
-    init(groupID: String, deviceID: String, intervalList: [Interval]) {
+    init(groupID: String, deviceID: String, intervalStr: String) {
         self.groupID = groupID
         self.deviceID = deviceID
-        self.intervalList = intervalList
+        self.intervalStr = intervalStr
     }
 }
