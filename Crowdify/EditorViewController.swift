@@ -28,10 +28,11 @@ class EditorViewController: UIViewController {
     // Table stuff
     let tableView = UITableView()
 
+    let myColorUtils = ColorUtils()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
         self.addSongImage(imageName: self.songImage)
         self.addSongTitle(text: self.songTitle)
         self.addSongArtists(artists: self.songArtists)
@@ -44,7 +45,6 @@ class EditorViewController: UIViewController {
         let save = UIButton()
         view.addSubview(cancel)
         view.addSubview(save)
-        let myColorUtils = ColorUtils()
         
         cancel.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "d0ced5").cgColor
         cancel.layer.borderWidth = 2.0
@@ -87,6 +87,7 @@ class EditorViewController: UIViewController {
             make.left.right.bottom.equalTo(view)
             make.top.equalTo(view.center.y).offset(250)
         }
+        tableView.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
         tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         tableView.allowsSelection = false
         tableView.delegate = self
@@ -98,7 +99,7 @@ class EditorViewController: UIViewController {
         let artist = UILabel(frame: CGRect.zero)
         artist.text = artists.joined(separator: ", ")
         artist.font = UIFont(name:"HelveticaNeue", size: 16.0)
-        artist.textColor = UIColor.gray
+        artist.textColor = myColorUtils.hexStringToUIColor(hex: "d0ced5")
         view.addSubview(artist)
         artist.snp.makeConstraints { make in
             make.centerX.equalTo(view.center.x)
@@ -110,6 +111,7 @@ class EditorViewController: UIViewController {
         let title = UILabel(frame: CGRect.zero)
         title.text = text
         title.font = UIFont(name:"HelveticaNeue", size: 18.0)
+        title.textColor = myColorUtils.hexStringToUIColor(hex: "fbfbfb")
         view.addSubview(title)
         title.snp.makeConstraints { make in
             make.centerX.equalTo(view.center.x)
@@ -122,7 +124,7 @@ class EditorViewController: UIViewController {
         let imageView = UIImageView(image: image!)
         imageView.layer.borderWidth = 2.0
         imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "d0ced5").cgColor
         imageView.layer.cornerRadius = 50.0 // TODO: get this value dynamically
         imageView.clipsToBounds = true
         view.addSubview(imageView)

@@ -27,6 +27,8 @@ class EditorTableViewCell: UITableViewCell {
     var albumLabel = UILabel()
     private let leftRightSpacing: CGFloat = 5
     
+    let myColorUtils = ColorUtils()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -37,12 +39,12 @@ class EditorTableViewCell: UITableViewCell {
     }
     
     func configure() {
+        self.backgroundColor = myColorUtils.hexStringToUIColor(hex: "161619")
         addSubview(rangeSlider)
         addSubview(albumArt)
         //addSubview(startLabel)
         //addSubview(endLabel)
         //addSubview(deviceName)
-        
         rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
         rangeSlider.setMinValue(0.0, maxValue: 1.0)
         rangeSlider.setLeftValue(0.0, rightValue: 1.0)
