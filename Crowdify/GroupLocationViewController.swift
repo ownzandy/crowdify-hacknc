@@ -36,7 +36,10 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
         self.addButtons()
-        
+
+    }
+    
+    func addTableView() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
             make.left.right.bottom.equalTo(view)
@@ -45,13 +48,14 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(GroupLocationViewCell.self, forCellReuseIdentifier: GroupLocationViewCell.reuseID)
+
     }
     
     func addButtons() {
         let cancel = UIButton()
-        let save = UIButton()
+        let refresh = UIButton()
         view.addSubview(cancel)
-        view.addSubview(save)
+        view.addSubview(refresh)
         
         cancel.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "d0ced5").cgColor
         cancel.layer.borderWidth = 2.0
@@ -66,18 +70,18 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         }
         cancel.addTarget(self, action: #selector(self.createGroup), for: .touchUpInside)
         
-        save.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "dc3a79").cgColor
-        save.layer.borderWidth = 2.0
-        save.setTitle("Join Group", for: .normal)
-        save.setTitleColor(myColorUtils.hexStringToUIColor(hex: "dc3a79"), for: .normal)
-        save.layer.cornerRadius = 15.0
-        save.snp.makeConstraints { make in
+        refresh.layer.borderColor = myColorUtils.hexStringToUIColor(hex: "dc3a79").cgColor
+        refresh.layer.borderWidth = 2.0
+        refresh.setTitle("Refresh", for: .normal)
+        refresh.setTitleColor(myColorUtils.hexStringToUIColor(hex: "dc3a79"), for: .normal)
+        refresh.layer.cornerRadius = 15.0
+        refresh.snp.makeConstraints { make in
             make.width.equalTo(130.0)
             make.height.equalTo(30.0)
             make.centerX.equalTo(view.center.x).offset(300)
             make.top.equalTo(view).offset(20)
         }
-        save.addTarget(self, action: #selector(self.joinGroup), for: .touchUpInside)
+        refresh.addTarget(self, action: #selector(self.refreshGroups), for: .touchUpInside)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -89,17 +93,18 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func createGroup() {
+        print("Create group pressed")
         let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
         let uuid = UUID().uuidString
         
         geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: uuid)
         geofireRef.child(uuid).child("leader").setValue(deviceUUID)
-        let arr : [String] = []
-        geofireRef.child(uuid).child("followers").setValue(arr)
+//        let arr : [String] = []
+//        geofireRef.child(uuid).child("followers").setValue(arr)
     }
-    
-    func joinGroup() {
-        print("heyheyhey")
+
+    func refreshGroups() {
+        print("Refresh group pressed")
         let center = CLLocation(latitude: lat, longitude: long)
         // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
         var circleQuery = geoFire.query(at: center, withRadius: 0.6)
@@ -116,14 +121,12 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
             print("Key '\(key!)' entered the search area and is at location '\(location)'")
         })
         self.tableView.reloadData()
-
     }
 }
 
 extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("testing testing " + String(groupSet.count))
         return groupSet.count
     }
     
@@ -136,33 +139,29 @@ extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cellNumber = indexPath.row
         let joinKey = groupSet[groupSet.index(groupSet.startIndex, offsetBy: cellNumber)]
-        let currentArray : [String]
-        let currentRef = geofireRef.child(joinKey).child("followers")
+//        let currentArray : [String]
+        let currentRef = geofireRef.child(joinKey)
         
-//        currentRef.observeSingleEvent(of: .value, with: { snapshot in
-//            
-//            if !snapshot.exists() { return }
-//            
-//            if let currentFollowers = snapshot.value["followers"] as? [String: AnyObject] {
-//                currentArray = currentFollowers
-//
-//            }
-//            
-//
-//        })
-        
-        currentRef.observe(FIRDataEventType.value, with: { (snapshot) in
-            let postDict = snapshot.value as! [String: AnyObject]
-            print("womp")
-            print(postDict)
+        currentRef.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            
+            if snapshot.hasChild("followers") {
+                print("has followers")
+                print(snapshot.value)
+                if let followers = snapshot.value as? [String] {
+                    var arr: [String] = followers
+                    let uid = UUID().uuidString
+                    // check contains
+                    if !arr.contains(uid) {
+                        arr.append(UUID().uuidString)
+                        currentRef.child("followers").setValue(arr) // add self to followers
+                    }
+                }
+            }
+            else {
+                print("no followers")
+                let uuid = UUID().uuidString
+                currentRef.child("followers").setValue([uuid]) // add self to followers
+            }
         })
-        
-        
-//        let deviceUUID: String = (UIDevice.current.identifierForVendor?.uuidString)!
-//        currentArray.append(deviceUUID)
-//        geofireRef.child(joinKey).child("followers").setValue(currentArray)
-//        geofireRef.child(joinKey).child()
-
-//        geofireRef.child(uuid).child("leader").setValue(deviceUUID)
     }
 }
