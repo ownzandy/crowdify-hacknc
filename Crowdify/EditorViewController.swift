@@ -21,13 +21,44 @@ class EditorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        // Add song info at top
+        let imageName = "cat.jpg"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.layer.borderWidth = 2.0
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.black.cgColor
+        imageView.layer.cornerRadius = 50.0 // TODO: get this value dynamically
+        imageView.clipsToBounds = true
+        view.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.top.equalTo(view).offset(50)
+            make.centerX.equalTo(view)
+        }
+        view.addSubview(imageView)
+        
+        
         // Config rangeSlider
         rangeSlider.addTarget(self, action: #selector(self.rangeSliderValueDidChange), for: .valueChanged)
         rangeSlider.setMinValue(0.0, maxValue: 1.0)
         rangeSlider.setLeftValue(0.2, rightValue: 0.7)
         rangeSlider.minimumDistance = 0.0
+        let margin: CGFloat = 20.0
+        //let width = view.bounds.width - 2.0 * margin
+        //rangeSlider.frame = CGRect(x: margin, y: view.center.y,
+        //                           width: width, height: 51.0)
         view.addSubview(self.rangeSlider)
-        
+
+        rangeSlider.snp.makeConstraints { make in
+            make.width.equalTo(view.bounds.width - 2.0 * margin)
+            make.height.equalTo(51.0)
+            make.centerX.equalTo(view.center.x)
+            make.centerY.equalTo(view.center.y).offset(200)
+        }
+    
         startLabel.text = self.percentToTime(percentage: rangeSlider.leftValue, durationMS: self.songDurationMS)
         endLabel.text = self.percentToTime(percentage: rangeSlider.rightValue, durationMS: self.songDurationMS)
         view.addSubview(startLabel)
@@ -55,12 +86,13 @@ class EditorViewController: UIViewController {
         return retval
     }
     
+    /*
     override func viewDidLayoutSubviews() {
         let margin: CGFloat = 20.0
         let width = view.bounds.width - 2.0 * margin
-        rangeSlider.frame = CGRect(x: margin, y: margin + topLayoutGuide.length,
+        rangeSlider.frame = CGRect(x: margin, y: view.center.y,
                                    width: width, height: 31.0)
-    }
+    }*/
     
     func rangeSliderValueDidChange(_ slider: MARKRangeSlider) {
         startLabel.text = self.percentToTime(percentage: slider.leftValue, durationMS: self.songDurationMS)
