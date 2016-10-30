@@ -24,15 +24,14 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
     var lat : Double = 0.0
     var long : Double = 0.0
     var groupSet = Set<String>();
-    var myUid: String
+    var myUid: String! 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let myDefaults = UserDefaults.standard
         self.myUid = myDefaults.string(forKey: "token")!
-        print("womp token")
-        print(self.myUid)
+        print("womp token " + self.myUid)
         
         geoFire = GeoFire(firebaseRef: rootRef)
         self.initLocationManager()
@@ -104,6 +103,11 @@ class GroupLocationViewController: UIViewController, CLLocationManagerDelegate {
         
         geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: self.myUid)
         rootRef.child(self.myUid).child("leader").setValue(self.myUid)
+        // Automatically join created group as a follower (in addition to being a leader)
+        let arr: NSArray = [self.myUid]
+        rootRef.child(self.myUid).child("followers").setValue(arr) // add self to followers
+//        self.groupSet.insert(self.myUid)
+        self.tableView.reloadData()
     }
 
     func refreshGroups() {
@@ -140,25 +144,34 @@ extension GroupLocationViewController: UITableViewDelegate, UITableViewDataSourc
         let cellNumber = indexPath.row
         let joinKey = groupSet[groupSet.index(groupSet.startIndex, offsetBy: cellNumber)]
         let currentRef = rootRef.child(joinKey)
+        print(self.myUid)
         
         currentRef.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             
             if snapshot.hasChild("followers") {
                 print("has followers")
                 print(snapshot.value)
-                if let followers = snapshot.value as? [String] {
-                    var arr: [String] = followers
-                    // check contains
+                if let snapValue = snapshot.value as? NSDictionary {
+                    var arr = snapValue["followers"] as! [String]
+                    print(arr)
+                    print(self.myUid)
                     if !arr.contains(self.myUid) {
+                        print("appending self...")
                         arr.append(self.myUid)
                         currentRef.child("followers").setValue(arr) // add self to followers
+                    }
+                    else {
+                        print("duplicate")
                     }
                 }
             }
             else {
                 print("no followers")
-                currentRef.child("followers").setValue([self.myUid]) // add self to followers
+                let arr: NSArray = [self.myUid]
+                currentRef.child("followers").setValue(arr) // add self to followers
             }
         })
+        
+        // TODO: transition to PlaylistVC afterwards 
     }
 }
