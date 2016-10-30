@@ -21,11 +21,15 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
     let player = SPTAudioStreamingController.sharedInstance()
     var ref = FIRDatabase.database().reference()
     var searchActive: Bool = false
+    var playing: Bool = false
+    var master: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         player?.playbackDelegate = self
+        
+        self.ref.child("sync").setValue(["sync": "true"])
         
         let crowdRef = self.ref.child("crowds").child(crowdID).child("songs").queryOrdered(byChild: "index")
         
@@ -35,13 +39,15 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
                     return ($0.value["index"] as! Int) < ($1.value["index"] as! Int)
                 }
                 var newTracks: [Track] = []
-                for (_, value) in sortedTracks {
+                for (key, value) in sortedTracks {
                     if let track = value as? [String: AnyObject] {
                         newTracks.append(Track(name: track["name"] as! String,
                                                uri: URL(string: track["uri"] as! String)!,
                                                artists: track["artists"] as! [String],
                                                coverArt: URL(string: track["coverArt"] as! String)!,
-                                               albumName: track["albumName"] as! String))
+                                               albumName: track["albumName"] as! String,
+                                               firebaseID: key,
+                                               index: track["index"] as! Int))
                     }
                 }
                 self.playTracks = newTracks
@@ -79,22 +85,72 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
             make.height.equalTo(100)
             make.bottom.left.right.equalTo(view)
         }
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(startPlaying))
-        playView.addGestureRecognizer(gestureRecognizer)
+        let playerRecognizer = UITapGestureRecognizer(target: self, action: #selector(startPlaying))
+        playView.addGestureRecognizer(playerRecognizer)
+        
+        let syncView = UIView()
+        syncView.backgroundColor = UIColor.blue
+        view.addSubview(syncView)
+        syncView.snp.makeConstraints { make in
+            make.height.equalTo(100)
+            make.left.right.equalTo(view)
+            make.bottom.equalTo(view).offset(-100)
+        }
+        let syncRecognizer = UITapGestureRecognizer(target: self, action: #selector(toggleSync))
+        syncView.addGestureRecognizer(syncRecognizer)
+        
+        syncListener()
+
+    }
+    
+    func toggleSync() {
+        let syncToggleRef = self.ref.child("sync")
+        syncToggleRef.observeSingleEvent(of: FIRDataEventType.value, with: { result in
+            syncToggleRef.setValue(["sync": ProcessInfo.processInfo.globallyUniqueString])
+
+        })
+    }
+    
+    func syncListener() {
+        let syncToggleRef = self.ref.child("sync")
+        syncToggleRef.observe(FIRDataEventType.value, with: { result in
+            self.startPlaying()
+
+        })
     }
     
     func startPlaying() {
-        if(playTracks.count > 0) {
-            print(playTracks.first?.uri.absoluteString)
-            player?.playSpotifyURI(playTracks.first?.uri.absoluteString, startingWith: 0, startingWithPosition: 0, callback: { error -> Void in
-                if(error != nil) {
-                    print("Error playing Spotify URI", error)
-                    return
-                }
-                print("playing music")
-            })
+        if let trackUri = playTracks.first?.uri.absoluteString {
+            if(playTracks.count > 0) {
+                let songRef = self.ref.child("song")
+                songRef.updateChildValues(["currentSong": trackUri])
+                songRef.observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
+                    if let song = snapshot.value as? [String: AnyObject] {
+                        if let offset = song["offset"] as? Double {
+                            self.playWithOffset(offset: Double(Int(offset)), trackUri: trackUri)
+                        } else {
+                            self.master = true
+                            songRef.updateChildValues(["offset": 0])
+                            self.playWithOffset(offset: 0, trackUri: trackUri)
+                        }
+                    } else {
+                        songRef.updateChildValues(["offset": 0])
+                        self.master = true
+                        self.playWithOffset(offset: 0, trackUri: trackUri)
+                    }
+                })
+            }
         }
-            
+    }
+    
+    func playWithOffset(offset: TimeInterval, trackUri: String) {
+        player?.playSpotifyURI(trackUri, startingWith: 0, startingWithPosition: offset, callback: { error -> Void in
+            if(error != nil) {
+                print("Error playing Spotify URI", error)
+                return
+            }
+            print("playing music")
+        })
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -125,7 +181,7 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
                         }
                         return ""
                     }
-                    return Track(name: track.name, uri: track.playableUri, artists: artists, coverArt: track.album.smallestCover.imageURL, albumName: track.album.name)
+                    return Track(name: track.name, uri: track.playableUri, artists: artists, coverArt: track.album.smallestCover.imageURL, albumName: track.album.name, firebaseID: "N/A", index: -1)
                 }
                 self.searchTracks = tracks
                 self.tableView.reloadData()
@@ -137,28 +193,24 @@ class PlaylistViewController: UIViewController, UISearchBarDelegate {
 
 extension PlaylistViewController: SPTAudioStreamingPlaybackDelegate {
     
-    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStartPlayingTrack trackUri: String!) {
-        let crowdRef = self.ref.child("crowds").child(crowdID)
-        crowdRef.observeSingleEvent(of: FIRDataEventType.value, with: { snapshot in
-            let currentTime = Date().timeIntervalSince1970
-            if let crowd = snapshot.value as? [String: AnyObject], let uri = trackUri {
-                if let currentSong = crowd["currentSong"] as? String, let time = crowd["currentTime"] as? Double {
-                    if(currentSong == uri) {
-                        print(currentTime - time)
-                        self.player?.seek(to: currentTime - time, callback: { error in
-                            if(error != nil) {
-                                print("errored when seeking", error)
-                                return
-                            }
-                            print("successfully sync'd")
-                            return
-                        })
-                    }
-                }
-                crowdRef.updateChildValues(["currentSong": trackUri!, "currentTime": currentTime])
-            }
-        })
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didStopPlayingTrack trackUri: String!) {
+        self.ref.child("crowds").child(crowdID).child("songs").child((playTracks.first?.firebaseID)!).removeValue()
+        playTracks.remove(at: 0)
+        tableView.reloadData()
+        let songRef = self.ref.child("song")
+        if let trackUri = playTracks.first?.uri.absoluteString {
+            songRef.setValue(["currentSong": trackUri])
+        }
+        startPlaying()
     }
+    
+    func audioStreaming(_ audioStreaming: SPTAudioStreamingController!, didChangePosition position: TimeInterval) {
+        if master {
+            let songRef = self.ref.child("song")
+            songRef.updateChildValues(["offset": position])
+        }
+    }
+    
 }
 
 extension PlaylistViewController: UISearchResultsUpdating {
@@ -197,10 +249,12 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
         cell.songLabel.text = tracks[indexPath.item].name
         cell.songLabel.font = UIFont(name:"Avenir", size:16)
         cell.songLabel.textColor = UIColor .white
+        
         for name in tracks[indexPath.item].artists {
             artist += name
             artist += " "
         }
+        
         cell.artistAlbumLabel.text = artist + album + tracks[indexPath.item].albumName
         cell.artistAlbumLabel.font = UIFont(name:"Avenir", size:12)
         cell.artistAlbumLabel.textColor = UIColor .white
@@ -212,7 +266,8 @@ extension PlaylistViewController: UITableViewDelegate, UITableViewDataSource {
             let crowdRef = self.ref.child("crowds").child(crowdID).child("songs")
             let newSong = crowdRef.childByAutoId()
             let track = searchTracks[indexPath.row]
-            newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName, "index": playTracks.count + 1])
+            searchController.dismiss(animated: true, completion: nil)
+            newSong.setValue(["name": track.name, "uri": track.uri.absoluteString, "artists": track.artists, "coverArt": track.coverArt.absoluteString, "albumName": track.albumName, "index": (playTracks.last?.index)! + 1])
         }
     }
 }
