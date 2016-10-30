@@ -40,7 +40,7 @@ class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
             make.width.height.equalTo(100)
             make.centerX.centerY.equalTo(view)
         }
-        createGroupButton.addTarget(self, action: #selector(createGroup), for: .touchUpInside)
+        createGroupButton.addTarget(self, action: #selector(joinGroup), for: .touchUpInside)
         
     }
     
@@ -50,7 +50,6 @@ class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
         lat = current!.coordinate.latitude
         long = current!.coordinate.longitude
         
-//        print("locations = \(lat) \(long)")
     }
     
     func createGroup() {
@@ -59,6 +58,21 @@ class GroupLocatorViewController: UIViewController, CLLocationManagerDelegate {
         geoFire.setLocation(CLLocation(latitude: lat, longitude: long), forKey: deviceUUID)
     }
     
-    
+    func joinGroup() {
+        let center = CLLocation(latitude: lat, longitude: long)
+        // Query locations at [37.7832889, -122.4056973] with a radius of 600 meters
+        var circleQuery = geoFire.query(at: center, withRadius: 0.6)
+        
+//        print(circleQuery)
+        
+        // Query location by region
+        let span = MKCoordinateSpanMake(0.001, 0.001)
+        let region = MKCoordinateRegionMake(center.coordinate, span)
+        var regionQuery = geoFire.query(with: region)
+        
+        regionQuery?.observe(.keyEntered, with: { key, location in
+            print("Key '\(key!)' entered the search area and is at location '\(location)'")
+        })
+    }
     
 }
